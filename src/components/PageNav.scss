@@ -1,0 +1,40 @@
+.pageNav{
+	position: fixed;
+	right: 30px;
+	top: 50%;
+    transform: translateY(-50%);
+	cursor: pointer;
+	animation: entrance_pagenav_right .5s;
+	&__arrow{
+		width: 27px;
+		height: 27px;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-radius: 50%;
+		border: 1px solid #333;
+		&--inactive{
+			opacity: .6;
+			cursor: not-allowed;
+		}
+		&--white{
+			filter: brightness(0) invert(1);
+			border: 1px solid #fff;
+		}
+		&--up{
+			background-image: url('../assets/images/icons/up-arrow.png');
+			margin-bottom: 10px;
+		}
+		&--down{
+			background-image: url('../assets/images/icons/down-arrow.png');
+			margin-top: 10px;
+		}		
+		&--right{
+			background-image: url('../assets/images/icons/right-arrow.png');
+			margin-bottom: 10px;
+		}
+		&--left{
+			background-image: url('../assets/images/icons/left-arrow.png');
+			margin-top: 10px;
+		}
+	}
+}

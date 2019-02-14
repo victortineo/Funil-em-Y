@@ -1,0 +1,46 @@
+.menu{
+	position: fixed;
+	width: 100%;
+	right: 0vw;
+	height: 100vh;
+	transition: ease .5s;
+	top: -100vh;
+	&--active{
+		top: 0;
+		z-index: 11
+	}
+	&__background{
+		background-color: #5c6a7f;
+		padding: 45px 0;
+	}
+	&__links{
+		display: flex;
+		justify-content: space-around;
+		list-style: none;
+	}
+	&__item{
+		color: #ffffff;
+		font-family: Raleway;
+		line-height: 1.5;
+		text-transform: uppercase;
+		&--destacado{
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 35px;
+		}
+		&--comum{
+			font-size: 12px;
+			font-weight: 400;
+			margin-left: 15px;
+		}
+	}
+	&__close{
+		position: absolute;
+		top: 2.5em;
+		right: 5em;
+		text-decoration: none;
+		font-style: normal;
+		color: #fff;
+		font-size: 24px;
+	}
+}

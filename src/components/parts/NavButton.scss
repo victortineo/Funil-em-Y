@@ -1,0 +1,30 @@
+.navButton{
+	height: 36px;
+	min-width: 120px;
+	background-color: #f8be00;
+	border: none;
+	outline: none;
+	text-align: left;
+	padding: 0 20px 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	&__text{
+		color: #282828;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding-right: 1.3em;
+	}
+	&__line{
+	    width: 2px;
+	    height: 21px;
+	    display: block;
+	    background-color: #292929;
+	    &--vertical{
+	    	height: 2px;
+	    	width: 21px;
+	    }
+	}
+}

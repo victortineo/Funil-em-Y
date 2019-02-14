@@ -1,0 +1,119 @@
+.textSlider{
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    width: 80%;
+    max-width: 280px;
+	transition: ease .1s;
+	opacity: 1;
+	&--animated{
+		animation: fading 1.5s;
+	}
+	&__title{
+		color: #b6b7b8;
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	&__text{
+		color: #282828;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	&__slider-controler-list{
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translate(0%, -50%);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        max-width: 580px;
+    }
+    &__slider-controler{
+        color: #a1a1a1;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.5;
+        &--active{
+            color: #282828;
+        }
+    }
+    &__nav{
+    	display: flex;
+    	justify-content: flex-end;
+    }
+    &__navArrow{
+		width: 27px;
+		height: 27px;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-radius: 50%;
+		display: inline-block;
+	    color: #282828;
+    	&--right {
+			background-image: url('../assets/images/icons/right-arrow-white.png');
+			background-position: 6px 5px;
+			border: 1px solid #bfbfbf;
+			background-color: #bfbfbf;
+			margin-left: 5px;
+    	}
+    	&--left {
+			background-image: url('../assets/images/icons/left-arrow-white.png');
+			background-position: 4px 5px;
+			background-color: #bfbfbf;
+		    border: 1px solid #bfbfbf;
+			margin-right: 5px;
+    	}
+    	&--inactive{
+			border: 1px solid #f1f2f2;
+			background-color: #f1f2f2;
+			opacity: .5;
+    	}
+    } 
+}
+
+
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+	.textSlider{
+		left: 5%;
+	    bottom: 10%;
+	    width: 80%;
+	    max-width: 280px;
+	    &__slider-controler-list{
+			justify-content: space-between;
+	        left: 50%;
+	        transform: translate(-50%, -50%);
+			width: 100%;
+		}
+	    &__slider-controler{
+	        font-size: 24px;
+	        line-height: 50.16px;
+	        color: #d9d9d9;
+	        margin: 0;
+    	}
+	}
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+	.textSlider{
+		left: 5%;
+	    bottom: 15%;
+	    width: 80%;
+	    max-width: 430px;
+	}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+	.textSlider{
+		left: 10%;
+	}
+}

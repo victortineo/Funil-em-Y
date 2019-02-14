@@ -1,0 +1,152 @@
+.metodologia{
+	background-image: url('../assets/images/metodologia/background.png');
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    &__y-wrapper{
+    	position: absolute;
+    	left: 5%;
+    	top: 5%;
+        width: 100%;
+    }
+    &__y{
+        width: 200px;
+        float: right;
+        margin-right: 25px;
+    }
+    &__navWrapper{
+    	position: absolute;
+    	&--inbound{
+            top: 30px;
+            left: 0;
+            &--animated{
+                animation: metodologia-inbound-entrance 1.5s;
+            }
+    	}    	
+    	&--outbound{
+            top: 70px;
+            left: 0;
+            &--animated{
+                animation: metodologia-outbound-entrance 1.5s;
+            }
+    	}
+    	&--pontes{
+            top: 110px;
+            left: 0;
+            &--animated{
+                animation: metodologia-pontes-entrance 1.5s;
+            }
+    	}
+    	&--processo{
+            top: 150px;
+            left: 0;
+            &--animated{
+                animation: metodologia-processo-entrance 1.5s;
+            }
+    	}
+    }
+    // &__slider-wrapper{
+    //     position: absolute;
+    //     left: 10%;
+    //     bottom: 15%;
+    //     width: 80%;
+    //     max-width: 430px;
+    // }
+}
+
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+    .metodologia{
+        &__y-wrapper{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+        }
+        &__y{
+            width: 100%;
+            float: none;
+        }
+        &__navWrapper{
+            position: absolute;
+            &--inbound{
+                top: -30px;
+                left: -80px;
+                &--animated{
+                    animation: metodologia-inbound-entrance 1.5s;
+                }
+            }       
+            &--outbound{
+                top: -30px;
+                left: auto;
+                right: -80px;
+                &--animated{
+                    animation: metodologia-outbound-entrance 1.5s;
+                }
+            }
+            &--pontes{
+                top: 12%;
+                left: 50%;
+                transform: translateX(-50%);
+                &--animated{
+                    animation: metodologia-pontes-entrance 1.5s;
+                }
+            }
+            &--processo{
+                bottom: 15%;
+                right: 0px;
+                top: auto;
+                left: auto;
+                &--animated{
+                    animation: metodologia-processo-entrance 1.5s;
+                }
+            }
+        }
+    }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+@keyframes metodologia-inbound-entrance{
+    0% { left : 100%}
+    100% {left: -80px}
+}       
+@keyframes metodologia-outbound-entrance{
+    0% {right: 100%}
+    100% {right: -80px}
+}
+@keyframes metodologia-pontes-entrance{
+    0% {left: 100%}
+    100% {left: 50%}
+}
+@keyframes metodologia-processo-entrance{
+    0% {right: 100%}
+    100% {right: 0px}
+}
+
+.metodologia_sec{
+    .fp-controlArrow.fp-next,
+    .fp-controlArrow.fp-prev
+    {
+        border: 1px solid #222;
+        filter: none;
+    }
+    @media (max-width: 768px){
+        .fp-controlArrow.fp-next{
+            left: auto;
+            right: 10px;
+        }
+        .fp-controlArrow.fp-prev{
+            left: auto;
+            right: 50px;
+        }
+    }
+}

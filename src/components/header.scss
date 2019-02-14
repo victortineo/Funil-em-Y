@@ -1,0 +1,35 @@
+.header{
+	position: fixed;
+	top: 5%;
+	padding: 0 5%;
+	z-index: 10;
+	width: 100%;
+	animation: entrance_header_top .7s;
+	&__widgets{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+	&__title{
+		font-family: Raleway;
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: 400;
+		color: #ffffff;
+	}
+	&__icon{
+		background-size: contain;
+		width: 27px;
+		height: 17px;
+		background-repeat: no-repeat;
+		font-size: 0;
+		cursor: pointer;
+	}
+	&__search-icon{
+		background-image: url('../assets/images/icons/busca.png')
+	}
+	&__menu-icon{
+		background-image: url('../assets/images/icons/menu.png')
+	}
+}

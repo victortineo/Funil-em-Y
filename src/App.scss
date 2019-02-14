@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+a{
+	color: inherit;
+	text-decoration: none;
+	&:hover, &:active, &:visited{
+		text-decoration: none;
+		color: inherit;
+		
+	}
+}
+p, h1, h2, h3, h4, h5, h6, span, a, strong{
+	font-family: 'Raleway';
+}
+.page-full{
+	transition: ease .5s;
+	&__overlay{
+		background-color: rgba(#000, 0.5)
+	}
+}
+
+// seta de navegação dos slides
+
+.section .fp-controlArrow{
+		width: 27px;
+		height: 27px;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-radius: 50%;
+	    filter: brightness(0) invert(1);
+	&.fp-prev{
+		background-image: url('../assets/images/icons/left-arrow.png');
+		background-position: center center;
+		left: 15px;
+		width: 27px;
+		height: 27px;
+	    border: none;
+	    border: 1px solid #fff;
+	    margin: 0;
+	}
+	&.fp-next{
+		background-image: url('../assets/images/icons/right-arrow.png');
+		background-position: center center;
+		left: calc(15px + 40px);
+		width: 27px;
+		height: 27px;
+	    border: none;
+	    border: 1px solid #fff;
+	    margin: 0;
+	}
+} 
