@@ -23,6 +23,9 @@
 		font-family: Raleway;
 		line-height: 1.5;
 		text-transform: uppercase;
+		&--dark{
+			color: #282828;
+		}
 		&--destacado{
 			font-size: 14px;
 			font-weight: 700;

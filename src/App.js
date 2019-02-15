@@ -48,7 +48,7 @@ class App extends Component {
     return (
         <ReactFullpage
           menu='.menu'
-          fixedElements='.footer, .header, .nav-social, .pageNav'
+          fixedElements='.fixedElements'
           onLeave={this.onLeave.bind(this)}
           onSlideLeave={this.onSlideLeave.bind(this)}
           afterRender={this.pageLoaded.bind(this)}
@@ -58,19 +58,21 @@ class App extends Component {
             return (
               <React.Fragment>
                   {/* elementos fixos */}
-                  <Header overlay={this.menuOverlay} />
-                  <NavSocial />
-                  <PageNav 
-                    moveDown={() => fullpageApi.moveSectionDown()}
-                    moveUp={() => fullpageApi.moveSectionUp()}
-                    sectionActive={fullpageApi ? fullpageApi.getActiveSection() : false}
-                    isFirst={this.state.firstSection}
-                    isLast={this.state.lastSection}
-                  />
-                  <Footer 
-                    index={this.state.sectionIndex}
-                    pageName={this.state.pageName}
-                  />
+                  <div className={`fixedElements ${this.state.firstSection ? 'fixedElements--isHome' : ''}`}>
+                    <Header overlay={this.menuOverlay} />
+                    <NavSocial />
+                    <PageNav 
+                      moveDown={() => fullpageApi.moveSectionDown()}
+                      moveUp={() => fullpageApi.moveSectionUp()}
+                      sectionActive={fullpageApi ? fullpageApi.getActiveSection() : false}
+                      isFirst={this.state.firstSection}
+                      isLast={this.state.lastSection}
+                    />
+                    <Footer 
+                      index={this.state.sectionIndex}
+                      pageName={this.state.pageName}
+                    />
+                  </div>
                 {/* fim elementos fixos */}
                 <ReactFullpage.Wrapper>
                   <div className="section" data-name="home">

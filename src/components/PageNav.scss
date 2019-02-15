@@ -12,13 +12,10 @@
 		background-position: center;
 		border-radius: 50%;
 		border: 1px solid #333;
+		transition: ease .5s;
 		&--inactive{
 			opacity: .6;
 			cursor: not-allowed;
-		}
-		&--white{
-			filter: brightness(0) invert(1);
-			border: 1px solid #fff;
 		}
 		&--up{
 			background-image: url('../assets/images/icons/up-arrow.png');

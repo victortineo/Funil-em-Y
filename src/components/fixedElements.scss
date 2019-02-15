@@ -1,0 +1,27 @@
+.fixedElements{
+	&--isHome{
+		color: #fff;
+		.pageNav__arrow{
+			filter: brightness(0) invert(1);
+			border: 1px solid #fff;
+		}
+		.nav-social__links{
+			color: #fff;
+		}
+		.header__title{
+			color: #fff;
+		}
+		.footer__pagination{
+			color: #fff;
+		}		
+		.footer__by{
+			color: #fff;
+		}
+		.footer__phone{
+			filter: brightness(0) invert(1);
+		}
+		.header__icon{
+			filter: brightness(0) invert(1);
+		}
+	}
+}
