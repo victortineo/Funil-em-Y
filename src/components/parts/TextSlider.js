@@ -42,32 +42,36 @@ class TextSlider extends Component{
 	render(){
 		return (
 			<React.Fragment>
-				<div key={`activeSlide_${this.state.slideActive}`} className={`textSlider ${this.state.animated === true ? 'textSlider--animated' : ''}`}>
-					<strong className="textSlider__title">{this.props.slides.length !== 0 && (this.props.slides[this.state.slideActive].title)}</strong>
-					<p className="textSlider__text">
+				<div key={`activeSlide_${this.state.slideActive}`} className={`${this.props.controlerClass} ${this.state.animated === true ? `${this.props.controlerClass}--animated` : ''}`}>
+					<strong className={`${this.props.controlerClass}__title`}>{this.props.slides.length !== 0 && (this.props.slides[this.state.slideActive].title)}</strong>
+					<p className={`${this.props.controlerClass}__text`}>
 						{this.props.slides.length !== 0 && (this.props.slides[this.state.slideActive].text)}
 					</p>
-					<div className="textSlider__nav">
+					<div className={`${this.props.controlerClass}__nav`}>
 						<span 
-							className={`textSlider__navArrow textSlider__navArrow--left ${this.state.slideActive === 0 ? ('textSlider__navArrow--inactive') : ''}`}
+							className={`${this.props.controlerClass}__navArrow ${this.props.controlerClass}__navArrow--left ${this.state.slideActive === 0 ? (`${this.props.controlerClass}__navArrow--inactive`) : ''}`}
 							onClick={this.setBefore}
 							> 
 							
 						 </span>
 						<span 
-							className={`textSlider__navArrow textSlider__navArrow--right ${this.state.slideActive === this.state.slidesLength -1 ? ('textSlider__navArrow--inactive') : ''}`}
+							className={`${this.props.controlerClass}__navArrow ${this.props.controlerClass}__navArrow--right ${this.state.slideActive === this.state.slidesLength -1 ? (`${this.props.controlerClass}__navArrow--inactive`) : ''}`}
 							onClick={this.setNext}
 							>
 						</span>
 					</div>
 				</div>
-				<div className="textSlider__slider-controlers-wrapper">
-		          <div className="textSlider__slider-controlers textSlider__slider-controlers--left">
-		            <ul className="textSlider__slider-controler-list">
-		              <div className="textSlider__slider-controler-inside textSlider__slider-controler-inside--left">
+				<div className={`${this.props.controlerClass}__slider-controlers-wrapper`}>
+		          <div className={`${this.props.controlerClass}__slider-controlers ${this.props.controlerClass}__slider-controlers--left`}>
+		            <ul className={`${this.props.controlerClass}__slider-controler-list`}>
+		              <div className={`${this.props.controlerClass}__slider-controler-inside ${this.props.controlerClass}__slider-controler-inside--left`}>
 		               {this.props.leftItems.map(item => 
 		                  <li
-		                     className={`textSlider__slider-controler ${item.key === this.state.slideActive && ('textSlider__slider-controler--active')}`}
+		                     className={`${this.props.controlerClass}__slider-controler 
+		                     			${item.key === this.state.slideActive && (
+		                     				`${this.props.controlerClass}__slider-controler--active`
+		                     			)}
+		                     			`}
 		                    onClick={() => this.setCurrentSlide(item.key)}
 		                    key={item.key}
 		                    >
@@ -75,10 +79,10 @@ class TextSlider extends Component{
 		                  </li>
 		                )}
 		              </div>
-		              <div className="textSlider__slider-controler-inside textSlider__slider-controler-inside--right">
+		              <div className={`${this.props.controlerClass}__slider-controler-inside ${this.props.controlerClass}__slider-controler-inside--right`}>
 		                {this.props.rightItems.map(item => 
 		                  <li 
-		                    className={`textSlider__slider-controler ${item.key === this.state.slideActive && ('textSlider__slider-controler--active')}`}
+		                    className={`${this.props.controlerClass}__slider-controler ${item.key === this.state.slideActive && (`${this.props.controlerClass}__slider-controler--active`)}`}
 		                    key={item.key}
 		                    onClick={() => this.setCurrentSlide(item.key)}
 		                    >
@@ -88,7 +92,7 @@ class TextSlider extends Component{
 		              </div>
 		            </ul>
 		          </div>
-		          <div className="textSlider__slider-controlers textSlider__slider-controlers--right"></div>
+		          <div className={`${this.props.controlerClass}__slider-controlers ${this.props.controlerClass}__slider-controlers--right`}></div>
 		        </div>
 			</React.Fragment>
 		)

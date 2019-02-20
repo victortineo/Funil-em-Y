@@ -3,6 +3,9 @@ import './components/main.scss';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Home from './components/pages/home'
 import Metodologia from './components/pages/Metodologia'
+import Magnet from './components/parts/Magnet'
+import MetodologiaInternas from './components/pages/MetodologiaInternas'
+import Fazemos from './components/pages/Fazemos'
 import Header from './components/header'
 import NavSocial from './components/nav-social'
 import Footer from './components/footer'
@@ -16,7 +19,8 @@ class App extends Component {
     sectionIndex: 0,
     firstSection: true,
     lastSection: false,
-    pageName: 'Home'
+    pageName: 'Home',
+    magnetWrapper: 'magnet__wrapper--null'
   }
 
   menuOverlay = () => {
@@ -28,8 +32,9 @@ class App extends Component {
     this.setSlideState(destination)
   }  
   onSlideLeave (section, origin, destination, direction){
-    // this.setSlideState(destination)
-    console.log(destination)
+    this.setState({
+      magnetWrapper: `magnet__wrapper--${destination.anchor}`
+    })
   }
   // componentDidMount = (api) => {
   // }
@@ -52,7 +57,7 @@ class App extends Component {
           onLeave={this.onLeave.bind(this)}
           onSlideLeave={this.onSlideLeave.bind(this)}
           afterRender={this.pageLoaded.bind(this)}
-          anchors={['home', 'metodologia']}
+          anchors={['home', 'metodologia', 'o-que-fazemos']}
           loopHorizontal={false}
           render={({ state, fullpageApi }) => {
             return (
@@ -83,16 +88,59 @@ class App extends Component {
                     />
                   </div>
                   <div className="section metodologia_sec" data-name="metodologia">
-                    <div className="slide">
+                    <div className={`magnet__wrapper ${this.state.magnetWrapper}`}>
+                      <Magnet />
+                    </div>
+                    <div className="slide" >
                       <Metodologia
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
                       />
                     </div>
-                    <div className="slide" style={{backgroundColor: '#350', textAlign: 'center'}}> slide 2</div>
-                    <div className="slide" style={{backgroundColor: '#acf', textAlign: 'center'}}>slide 3</div>
-                    <div className="slide" style={{backgroundColor: '#fc2', textAlign: 'center'}}>slide 4</div>
-                    <div className="slide" style={{backgroundColor: '#fc2', textAlign: 'center'}}>slide 5</div>
+                    <div className="slide" data-anchor="inbound">
+                      <MetodologiaInternas
+                        pageTitle="Inbound"
+                        pageTitleSpotlight="Marketing"
+                        introText="Você deseja que as oportunidades de negócio procurem por sua empresa? Este método já existe no mercado e, se você não conhece, suas ações certamente estão desatualizadas."
+                        secClass="inbound"
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                    <div className="slide" data-anchor="outbound">
+                      <MetodologiaInternas
+                        pageTitle="Outbound"
+                        pageTitleSpotlight="Marketing 2.0"
+                        introText="Se o outbound marketing é uma estratégia muito antiga, inclusive considerada ultrapassada por alguns, por que ainda usamos? Simples: porque gera resultados!"
+                        secClass="outbound"
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                      
+                    </div>
+                    <div className="slide" data-anchor="pontes">
+                      <MetodologiaInternas
+                        pageTitle="Pontes"
+                        pageTitleSpotlight="Funil em Y"
+                        introText="Esse processo é chamado de ponte, isto é, quando leads vão de um lado para o outro do Y de acordo com sua qualificação."
+                        secClass="pontes"
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                    <div className="slide" data-anchor="processos-comerciais">
+                      <MetodologiaInternas
+                        pageTitle="Processo"
+                        pageTitleSpotlight="Comercial"
+                        introText="Um processo comercial sólido garante uma maior previsibilidade do negócio e organiza melhor os processos de venda. Com ele você terá mapeado os dados das ações desde o momento em que um visitante vira lead até, enfim, virar um cliente do seu negócio. É uma forma de controlar tudo que acontece no seu funil de vendas em Y e não deixar nenhum lead esfriar, ou seja, perder o interesse."
+                        secClass="processo"
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                  </div>
+                  <div className="section" data-name="o-que-fazemos">
+                    <Fazemos />
                   </div>
                 </ReactFullpage.Wrapper>
               </React.Fragment>

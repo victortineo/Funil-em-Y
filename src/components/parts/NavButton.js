@@ -4,7 +4,7 @@ const NavButton = (props) =>{
 	return (
 		<button 
 			onClick={() => props.navigation(props.navTo)}
-			className="navButton"
+			className={`navButton ${props.selected === false ? 'navButton--unselected' : ''}`}
 			type="button">
 			<span className="navButton__text">
 				{props.pageName}

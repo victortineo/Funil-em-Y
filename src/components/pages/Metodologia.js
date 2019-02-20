@@ -15,12 +15,12 @@ class Metodologia extends Component {
       {title: 'Qualificar', key: 5}
     ],
     slides: [
-      {title: 'nutrir', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 0},
-      {title: 'nutrira', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 1},
-      {title: 'nutrire', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 2},
-      {title: 'nutriri', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 3},
-      {title: 'nutriro', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 4},
-      {title: 'nutriru', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 5}
+      {title: 'Atrair', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 0},
+      {title: 'Converter', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 1},
+      {title: 'Nutrir', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 2},
+      {title: 'Captar', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 3},
+      {title: 'Conectar', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 4},
+      {title: 'Qualificar', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 5}
     ]
   }
   navigate = () => {
@@ -68,6 +68,7 @@ class Metodologia extends Component {
             leftItems={leftItems}
             rightItems={rightItems}
             setCurrentSlide={(key) => this.setCurrentSlide(key)}
+            controlerClass='textSlider'
           />
         </div>
         

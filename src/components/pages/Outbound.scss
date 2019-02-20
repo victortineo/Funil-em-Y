@@ -1,0 +1,196 @@
+.outbound{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    max-width: 1380px; 
+    margin: 0 auto;
+    &__buttons-wrapper{
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        width: 100%;
+        max-width: 200px;
+    }
+    &__navWrapper{
+        width: 200px;
+        position: absolute;
+        .navButton{
+            width: 100%;
+        }
+        &--outbound{
+            top: 0px;
+            &--animated{
+                animation: outbound-outbound-entrance 1.5s;
+            }
+        }       
+        &--outbound{
+            top: 40px;
+            &--animated{
+                animation: outbound-outbound-entrance 1.5s;
+            }
+        }
+        &--pontes{
+            top: 80px;
+            &--animated{
+                animation: outbound-pontes-entrance 1.5s;
+            }
+        }
+        &--processo{
+            top: 120px;
+            &--animated{
+                animation: outbound-processo-entrance 1.5s;
+            }
+        }
+    }
+    &__magnet-wrapper{
+        position: absolute;
+        bottom: -5%;
+        left: 10%;
+        .magnet{
+            background-position: left;
+        }
+    }
+    &__intro-wrapper{
+        position: absolute;
+        top: 32.5%;
+        right: 5%;
+        max-width: 260px;
+    }
+    &__intro-title{
+        color: #282828;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 25px;
+        margin: -5px 0 0;
+    }
+    &__intro-title-bold{
+        font-weight: 700;
+    }
+    &__intro-text{
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 576px) {
+    .outbound{
+        &__magnet-wrapper{
+            position: absolute;
+            bottom: -1%;
+            left: 0%;
+        }
+        &__intro-wrapper{
+            top: 15%;
+            max-width: 280px;
+        }
+        &__intro-title{
+            font-size: 40px;
+            line-height: 50px;
+            margin: -10px 0 0;
+        }
+        &__buttons-wrapper{
+            top: 15%;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+    .outbound{
+        &__buttons-wrapper{
+            right: 15%;
+            top: 15%;
+        }
+        &__intro-wrapper{
+            top: 15%;
+            max-width: 340px;
+        }
+        &__intro-title{
+            font-size: 50px;
+            line-height: 60px;
+            margin: -10px 0 0;
+        }
+    }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .outbound{
+        &__magnet-wrapper{
+            bottom: -12%;
+            left: 10%;
+            height: 55%;
+            width: 35%;
+        }
+        &__intro-wrapper{
+            top: 15%;
+            left: 10%;
+            max-width: 520px;
+        }
+        &__intro-title{
+            font-size: 80px;
+            line-height: 90px;
+            margin: -10px 0 0;
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1380px) {
+    .outbound{
+        &__intro-wrapper{
+            max-width: 640px;
+        }
+        &__navWrapper{
+            width: 100%;
+            max-width: 400px;
+        }
+        &__intro-title{
+            font-size: 100px;
+            line-height: 110px;
+            margin: -10px 0 0;
+        }
+        &__buttons-wrapper{
+            width: 20%;
+        }
+        &__magnet-wrapper{
+            .magnet{
+                background-size: cover;
+            }
+        }
+    }
+}
+
+@keyframes outbound-outbound-entrance{
+    0% { left : 100%}
+    100% {left: -80px}
+}       
+@keyframes outbound-outbound-entrance{
+    0% {right: 100%}
+    100% {right: -80px}
+}
+@keyframes outbound-pontes-entrance{
+    0% {left: 100%}
+    100% {left: 50%}
+}
+@keyframes outbound-processo-entrance{
+    0% {right: 100%}
+    100% {right: 0px}
+}
+
+.outbound_sec{
+    .fp-controlArrow.fp-next,
+    .fp-controlArrow.fp-prev
+    {
+        border: 1px solid #222;
+        filter: none;
+    }
+    @media (max-width: 768px){
+        .fp-controlArrow.fp-next{
+            left: auto;
+            right: 10px;
+        }
+        .fp-controlArrow.fp-prev{
+            left: auto;
+            right: 50px;
+        }
+    }
+}

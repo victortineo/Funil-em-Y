@@ -12,6 +12,7 @@
     padding: 0 5%;
     justify-content: center;
     flex-direction: column;
+    overflow: hidden;
     &__content{
         position: relative;
         animation: entrance 1s ease;     
@@ -37,7 +38,7 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 20px;
-        animation: fading 3s ease;
+        animation: fading 3.5s ease;
         &--bold{
             font-weight: 700;
         }

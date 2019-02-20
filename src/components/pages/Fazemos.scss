@@ -1,0 +1,152 @@
+.fazemos{
+	background-image: url('../assets/images/metodologia/background.png');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    &__title{
+    	position: absolute;
+    	color: #282828;
+		font-size: 80px;
+		font-weight: 700;
+		line-height: 90px;
+		font-weight: 400;
+		top: 10%;
+		left: 15%;
+    }
+    &__content{
+    	position: absolute;
+	    max-width: 380px;
+	    right: 10%;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    max-height: 0;
+	    height: auto;
+	    transition: ease 2s;
+	    overflow: hidden;
+	    &--open{
+	    	max-height: 100%;
+	    }
+    }
+    &__content-text{
+    	animation: fading .7s;
+    }
+    &__title-spotlight{
+    	font-weight: 700;
+    	display: block;
+    }
+    &__listWrapper{
+    	position: absolute;
+    	left: 30%;
+    	bottom: 20%;
+    }
+    &__list{
+    	list-style: none;
+    	padding: 0;
+    	margin: 80px 0 0;
+    }
+    &__list-item{
+    	color: #d9d9d9;
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 44.16px;
+		transition: .5s;
+		cursor: pointer;
+		&--active{
+			color: #282828;
+		}
+    }
+	&__notebook{
+		background-image: url('../assets/images/fazemos/notebook.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: 50%;
+		width: 25%;
+		max-width: 327px;
+		max-height: 466px;
+		position: absolute;
+		right: 15%;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: ease 1s;
+		&--open{
+			top: -35%;
+	    	transform: rotate(-90deg);
+	    	right: 8%;
+		}
+	}
+	&__cup{
+		background-image: url('../assets/images/fazemos/cup.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 12%;
+		height: 10%;
+		position: absolute;
+		right: 28%;
+		top: 20%;
+		transition: ease 1.5s;
+		&--open{
+			top: -5%;
+    		right: 33%;
+    		transform: rotate(-90deg);
+		}
+	}
+	&__phone{
+		background-image: url('../assets/images/fazemos/phone.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 12%;
+		height: 10%;
+		position: absolute;
+		right: 28%;
+		bottom: 15%;
+		transition: ease .5s;
+		&--open{
+			bottom: -5%;
+		}
+	}
+	&__cactus{
+		background-image: url('../assets/images/fazemos/cactus.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 12%;
+		height: 10%;
+		position: absolute;
+		right: 15%;
+		bottom: 15%;
+		transition: ease 1s;
+		&--open{
+			bottom: -5%;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+    .fazemos{
+
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+    .fazemos{
+    }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .fazemos{
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1380px) {
+    .fazemos{
+    	&__content{
+    		max-width: 450px;
+    	}
+    }
+}
