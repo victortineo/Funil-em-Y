@@ -4,7 +4,7 @@ const NavButton = (props) =>{
 	return (
 		<button 
 			onClick={() => props.navigation(props.navTo)}
-			className={`navButton ${props.selected === false ? 'navButton--unselected' : ''}`}
+			className={`navButton ${props.selected === false ? 'navButton--unselected' : ''} ${props.borderless && props.bordeless !== false ? 'navButton--borderless' : ''}`}
 			type="button">
 			<span className="navButton__text">
 				{props.pageName}

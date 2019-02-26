@@ -1,0 +1,75 @@
+.verticalSlider{
+	display: flex;
+	align-items: center;
+	height: calc(153px * 3);
+	&__slider{
+		position: relative;
+		transition: 1s ease;
+		top: 0;
+	}
+	&__image{
+		height: 150px;
+		width: 350px;
+		cursor: pointer;
+		position: relative;
+		transition: 1s;
+		animation: fading .5s;
+
+	}
+	&__imageAfter{
+		transition: .5s;
+		.verticalSlider__image{
+		    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      		mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+		}
+	}
+	&__imageBefore{
+		transition: .5s;
+		position: relative;
+		.verticalSlider__image{
+			-webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+      		mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+		}
+	}
+	&__imageActive{
+		transition: .5s;
+		position: relative;
+		&--last{
+			margin-bottom: 150px;
+		}
+		&--first{
+			margin-top: 150px;
+		}
+	}
+	&__controler{ 
+		max-width: 371px;
+		margin-right: 40px;
+		position: relative;
+		padding-bottom: 20px;
+	}
+	&__controler-text{
+		color: #ffffff;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 19.98px;
+		text-align: right;
+		animation: fading 1.5s;
+	}
+	&__dots{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	&__dot{
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		cursor: pointer;
+		&--active{
+			background-color: #fff;
+		}
+	}
+}

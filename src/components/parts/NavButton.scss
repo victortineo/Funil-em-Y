@@ -10,6 +10,7 @@
 	align-items: center;
 	justify-content: space-between;
 	cursor: pointer;
+	position: relative;
 	&__text{
 		color: #282828;
 		font-size: 11px;
@@ -24,7 +25,17 @@
 	    background-color: #292929;
 	    position: relative;
 	    transition: ease .5s;
-	    &--vertical{
+	    position: absolute;
+	    right: 10px;
+	    &:before{
+    	    content: '';
+		    width: 2px;
+		    height: 0px;
+		    background-color: #282828;
+		    position: absolute;
+		    top: -21px;
+		}
+		&--vertical{
 	    	height: 2px;
 	    	width: 21px;
 	    	&:hover{
@@ -36,17 +47,10 @@
 			    height: 2px;
 			    background-color: #282828;
 			    position: absolute;
-			    left: -21px;
+			    left: -18px;
+			    top: auto;
 			}
 	    }
-	    &:before{
-    	    content: '';
-		    width: 2px;
-		    height: 0px;
-		    background-color: #282828;
-		    position: absolute;
-		    top: -21px;
-		}
 	}
 	&--unselected{
 		background-color: rgba(#000, 0);
@@ -59,7 +63,22 @@
 		.navButton__line--vertical::before{
 			background-color: #f8be00;
 		}
-
+	}
+	&--borderless{
+		background: none;
+		border: none;
+		.navButton__text{
+			color: #f8be00;
+			font-weight: 700;
+		}
+		&.navButton--unselected{
+			.navButton__text{
+				font-weight: 400;
+			}
+		}
+		.navButton__line{
+			background-color: #f8be00;
+		}
 	}
 	&:hover{
 		.navButton__line{
@@ -74,48 +93,5 @@
 		.navButton__line--vertical::before{
 			animation: vertical-line-before-hover 1s;
 		}
-	}
-}
-
-
-@keyframes vertical-line-hover{
-	0% {
-		width: 21px;
-	}
-	100% {
-		width: 0px;
-	}
-}
-@keyframes vertical-line-before-hover{
-	0% {
-		width: 0;
-	}
-	50% {
-		width: 0;
-	}
-	100% {
-		width: 21px;
-	}
-}
-@keyframes horizontal-line-hover{
-	0% {
-		height: 21px;
-		bottom: 0;
-
-	}
-	100% {
-		height: 0px;
-		bottom: -10.5px;
-	}
-}
-@keyframes horizontal-line-before-hover{
-	0% {
-		height: 0;
-	}
-	50% {
-		height: 0;
-	}
-	100% {
-		height: 21px;
 	}
 }

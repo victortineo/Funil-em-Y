@@ -1,0 +1,22 @@
+.contato{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+}
+
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1380px) {
+  .contato{
+  }
+}

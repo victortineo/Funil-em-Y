@@ -1,0 +1,89 @@
+.blog{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  &__navWrapper{
+    position: absolute;
+    width: 200px;
+    top: 15%;
+    right: 25%;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+  }
+  &__posts{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    .blogPost{
+      margin: 0 1.5em;
+    }
+  }
+  &__loader{
+    color: #fff;
+    display: flex;
+    &--dots{
+      position: relative;
+      padding: 0 5px;
+      &:after{
+        content: '...';
+        position: absolute;
+        animation: loading-dots 1s infinite;
+      }
+    }
+  }
+  &__nav{
+    position: relative;
+    &--a-layer{
+      &--animated{
+        animation: a-layer-entrance 1.3s;
+      }
+    }    
+    &--jornada{
+      &--animated{
+        animation: quem-somos-nav .8s;
+      }
+    }    
+    &--parceiros{
+      &--animated{
+        animation: reverse-quem-somos-nav .5s;
+      }
+    }    
+    &--clientes{
+      &--animated{
+        animation: quem-somos-nav .7s;
+      }
+    }   
+    &--blog{
+      &--animated{
+        animation: reverse-quem-somos-nav .3s;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1380px) {
+  .blog{
+    &__navWrapper{
+      top: 25%;
+      right: 35%
+    }
+  }
+}

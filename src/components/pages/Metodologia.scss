@@ -123,24 +123,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
 }
-
-@keyframes metodologia-inbound-entrance{
-    0% { left : 100%}
-    100% {left: -80px}
-}       
-@keyframes metodologia-outbound-entrance{
-    0% {right: 100%}
-    100% {right: -80px}
-}
-@keyframes metodologia-pontes-entrance{
-    0% {left: 100%}
-    100% {left: 50%}
-}
-@keyframes metodologia-processo-entrance{
-    0% {right: 100%}
-    100% {right: 0px}
-}
-
 .metodologia_sec{
     .fp-controlArrow.fp-next,
     .fp-controlArrow.fp-prev

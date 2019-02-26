@@ -160,23 +160,6 @@
     }
 }
 
-@keyframes inbound-inbound-entrance{
-    0% { left : 100%}
-    100% {left: -80px}
-}       
-@keyframes inbound-outbound-entrance{
-    0% {right: 100%}
-    100% {right: -80px}
-}
-@keyframes inbound-pontes-entrance{
-    0% {left: 100%}
-    100% {left: 50%}
-}
-@keyframes inbound-processo-entrance{
-    0% {right: 100%}
-    100% {right: 0px}
-}
-
 .inbound_sec{
     .fp-controlArrow.fp-next,
     .fp-controlArrow.fp-prev

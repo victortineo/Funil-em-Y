@@ -4,13 +4,25 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import Home from './components/pages/home'
 import Metodologia from './components/pages/Metodologia'
 import Magnet from './components/parts/Magnet'
+import Logo from './components/parts/LogoLayer'
 import MetodologiaInternas from './components/pages/MetodologiaInternas'
 import Fazemos from './components/pages/Fazemos'
+import ALayer from './components/pages/ALayer'
+import Jornada from './components/pages/Jornada'
+import Parceiros from './components/pages/Parceiros'
+import Clientes from './components/pages/Clientes'
+import Blog from './components/pages/Blog'
 import Header from './components/header'
 import NavSocial from './components/nav-social'
 import Footer from './components/footer'
 import PageNav from './components/PageNav'
 
+// devOnly
+import inboundRd from './assets/images/parceiros/inbound-rd.jpg'
+import platinumRd from './assets/images/parceiros/platinum-rd.jpg'
+import googlePartner from './assets/images/parceiros/google-partner.jpg'
+import clint from './assets/images/parceiros/clint.jpg'
+import clientPlaceholder from './assets/images/clientes/placeholder.png'
 
 class App extends Component {
   state = {
@@ -32,9 +44,11 @@ class App extends Component {
     this.setSlideState(destination)
   }  
   onSlideLeave (section, origin, destination, direction){
-    this.setState({
-      magnetWrapper: `magnet__wrapper--${destination.anchor}`
-    })
+    if(section.anchor === 'metodologia'){
+      this.setState({
+        magnetWrapper: `magnet__wrapper--${destination.anchor}`
+      })
+    }
   }
   // componentDidMount = (api) => {
   // }
@@ -49,22 +63,33 @@ class App extends Component {
   pageLoaded = (state) =>{
     this.setSlideState(state)
   }
+
+  isWhite(index){
+    if(index === 0 || index === 2){
+      return true
+    }
+    return false
+  }
   render() {
     return (
         <ReactFullpage
           menu='.menu'
           fixedElements='.fixedElements'
+          normalScrollElements='.verticalSliderAlt__slider, .verticalSliderAlt__slide, .clientes__clients, .clientes__client'
           onLeave={this.onLeave.bind(this)}
           onSlideLeave={this.onSlideLeave.bind(this)}
           afterRender={this.pageLoaded.bind(this)}
-          anchors={['home', 'metodologia', 'o-que-fazemos']}
+          anchors={['home', 'metodologia', 'quem-somos', 'o-que-fazemos']}
           loopHorizontal={false}
           render={({ state, fullpageApi }) => {
             return (
               <React.Fragment>
                   {/* elementos fixos */}
-                  <div className={`fixedElements ${this.state.firstSection ? 'fixedElements--isHome' : ''}`}>
-                    <Header overlay={this.menuOverlay} />
+                  <div className={`fixedElements ${this.isWhite(this.state.sectionIndex) ? 'fixedElements--isHome' : ''}`}>
+                    <Header 
+                      overlay={this.menuOverlay} 
+                      navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                    />
                     <NavSocial />
                     <PageNav 
                       moveDown={() => fullpageApi.moveSectionDown()}
@@ -139,8 +164,103 @@ class App extends Component {
                       />
                     </div>
                   </div>
+                  <div className="section quem-somos" data-name="quem-somos">
+                    <div className="quem-somos__bg-overlay"></div>
+                    <div className="quem-somos__logo-wrapper">
+                      <Logo />
+                      <p className="quem-somos__text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                    <div className="slide" data-anchor="porque-a-layer">
+                      <ALayer
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                    <div className="slide" data-anchor="jornada">
+                      <Jornada
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                    <div className="slide" data-anchor="parceiros">
+                       <Parceiros
+                        index={this.state.sectionIndex}
+                        clients={[
+                          {src: inboundRd, alt: 'Certificado em Inbound Marketing, ResultadosDigitais'},
+                          {src: platinumRd, alt: 'Platinum Partner, Rd Station'},
+                          {src: googlePartner, alt: 'Google Partner'},
+                          {src: clint, alt: 'We are Clint'}
+                        ]}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                    <div className="slide" data-anchor="clientes">
+                      <Clientes
+                        index={this.state.sectionIndex}
+                        clients={[
+                          {src: clientPlaceholder, alt: 'Certificado em Inbound Marketing, ResultadosDigitais'},
+                          {src: clientPlaceholder, alt: 'Platinum Partner, Rd Station'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'Google Partner'},
+                          {src: clientPlaceholder, alt: 'We are Clint'}
+                        ]}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>                    
+                    <div className="slide" data-anchor="blog">
+                      <Blog 
+                        index={this.state.sectionIndex}
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                      />
+                    </div>
+                  </div>
                   <div className="section" data-name="o-que-fazemos">
-                    <Fazemos />
+                    <Fazemos 
+                        navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                    />
                   </div>
                 </ReactFullpage.Wrapper>
               </React.Fragment>

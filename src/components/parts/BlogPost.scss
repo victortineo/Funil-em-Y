@@ -1,0 +1,16 @@
+.blogPost{
+    max-width: 250px;
+    width: 100%;
+    display: block;
+  &__image{
+    width: 100%;
+    object-fit: cover;
+    height: 120px;
+  }
+  &__text{
+    margin: 10px 0;
+    color: #fff;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

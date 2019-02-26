@@ -32,7 +32,7 @@ class Metodologia extends Component {
     return (
       <div className="metodologia">
         <div className={`metodologia__y-wrapper`}>
-          <img className={`metodologia__y`} src={funilEmY} />
+          <img className={`metodologia__y`} src={funilEmY} alt="Funil em Y"/>
             <div className={`metodologia__navWrapper metodologia__navWrapper--inbound ${this.props.index === 1 && (`metodologia__navWrapper--inbound--animated`)}`}>
               <NavButton 
                 horizontal={true}
