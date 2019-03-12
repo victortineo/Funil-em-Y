@@ -12,11 +12,14 @@
 	&__background{
 		background-color: #5c6a7f;
 		padding: 45px 0;
+		height: 100%;
 	}
 	&__links{
 		display: flex;
 		justify-content: space-around;
 		list-style: none;
+		flex-direction: column;
+		margin: 0;
 	}
 	&__item{
 		color: #ffffff;
@@ -28,23 +31,61 @@
 			color: #282828;
 		}
 		&--destacado{
-			font-size: 14px;
+			font-size: 12px;
 			font-weight: 700;
 			line-height: 35px;
 		}
 		&--comum{
-			font-size: 12px;
+			font-size: 10px;
 			font-weight: 400;
 			margin-left: 15px;
 		}
 	}
 	&__close{
 		position: absolute;
-		top: 2.5em;
-		right: 5em;
+		top: 5%;
+		right: 15%;
 		text-decoration: none;
 		font-style: normal;
 		color: #fff;
 		font-size: 24px;
 	}
 }
+
+@media (min-width: 576px) {
+    .menu{
+        
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px){
+    .menu{
+        &__links{
+        	flex-direction: row;
+        }
+        &__close{
+        	right: 5%;
+        	top: 2.5%;
+        }
+        &__background{
+        	height: auto;
+        }
+    }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .menu{
+        &__close{
+        	right: 5%;
+        	top: 5%;
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1380px) {
+    .menu{
+    }
+}
+

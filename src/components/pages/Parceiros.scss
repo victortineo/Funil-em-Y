@@ -23,9 +23,11 @@
     transform: translateX(-50%);
     width: 75%;
     max-width: 800px;
+    flex-wrap: wrap;
   }
   &__partner{
     border-radius: 3px;
+    margin-top: 1.2em;
   }
   &__nav{
     position: relative;
@@ -61,6 +63,11 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px){
+  .parceiros{
+    &__navWrapper{
+       right: 15%;
+    }
+  }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {

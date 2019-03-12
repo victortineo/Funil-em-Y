@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class PageNav extends Component{
 	render(){
 		return (
-			<div className="pageNav">
+			<div className={`pageNav ${this.props.isFirst === true ? 'pageNav__mobile--active' : 'pageNav__mobile--inactive'}`}>
 				<div 
 					className={`
 						${this.props.isFirst === true ? 'pageNav__arrow--inactive' : ''} 

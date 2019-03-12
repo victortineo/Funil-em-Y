@@ -4,38 +4,52 @@
     overflow: hidden;
     max-width: 1380px; 
     margin: 0 auto;
+    &__slider-wrapper{
+        // Mobile
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 10px;
+    }
     &__buttons-wrapper{
         position: absolute;
         left: 5%;
         top: 5%;
         width: 100%;
+        // mobile
+        position: relative;
+        margin-top: 25%;
+        top: 0;
+        margin-bottom: 25px;
     }
     &__navWrapper{
         width: 200px;
         position: absolute;
+        // mobile
+        width: 180px;
+        position: relative;
         .navButton{
             width: 100%;
         }
         &--inbound{
-            top: 0px;
+            margin-top: 5px;
             &--animated{
                 animation: inbound-inbound-entrance 1.5s;
             }
         }       
         &--outbound{
-            top: 40px;
+            margin-top: 5px;
             &--animated{
                 animation: inbound-outbound-entrance 1.5s;
             }
         }
         &--pontes{
-            top: 80px;
+            margin-top: 5px;
             &--animated{
                 animation: inbound-pontes-entrance 1.5s;
             }
         }
         &--processo{
-            top: 120px;
+            margin-top: 5px;
             &--animated{
                 animation: inbound-processo-entrance 1.5s;
             }
@@ -51,6 +65,9 @@
         top: 32.5%;
         left: 5%;
         max-width: 260px;
+        // Mobile
+        position: relative;
+        top: 0;
     }
     &__intro-title{
         color: #282828;
@@ -58,15 +75,71 @@
         font-weight: 400;
         line-height: 25px;
         margin: -5px 0 0;
+        // mobile
+        font-size: 40px;
+        line-height: 45.15px;  
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap; 
+    }
+    &__intro-toggler{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+        font-size: 25px;
+        font-weight: 400;
+        width: 17px;
+        height: 17px;
+        background-color: #e9bc2c;
     }
     &__intro-title-bold{
         font-weight: 700;
     }
     &__intro-text{
         margin-top: 5px;
+        // Mobile
+        max-width: 0;
+        overflow: hidden;
+        height: auto;
+        position: absolute;
+        background-color: #fff;
+        z-index: 10;
+        &--active{
+            // Mobile
+            box-shadow: 10px 9px 42px 15px rgba(0, 0, 0, 0.3);
+            animation: metodologia_interna_open .2s;
+            padding: 5px;
+            max-width: 1000px;
+        }
+        &--inactive{
+            animation: metodologia_interna_close .2s;
+            
+        }
     }
 }
+@keyframes metodologia_interna_open{
+    0% {
+        max-width: 0;
+        max-height: 0;
+    }
+    100% {
+        max-width: 260px;
+        max-height: 128px;
+    }
 
+}
+@keyframes metodologia_interna_close{
+    0% {
+        max-width: 260px;
+        max-height: 128px;
+    }
+    100% {
+        max-width: 0;
+        max-height: 0;
+    }
+
+}
 @media (min-width: 576px) {
     .inbound{
         &__magnet-wrapper{
@@ -98,16 +171,30 @@
             position: absolute;
             left: 10%;
             top: 15%;
+            margin: 0;
+            width: auto;
         }
         &__intro-wrapper{
             top: 15%;
             right: 10%;
             max-width: 340px;
+            position: absolute;
         }
         &__intro-title{
             font-size: 50px;
             line-height: 60px;
             margin: -10px 0 0;
+        }
+        &__intro-text{
+            position: relative;
+            max-width: none;
+            background: none;
+        }
+        &__intro-toggler{
+            display: none;   
+        }
+        &__navWrapper{
+            width: 200px;
         }
     }
 }
@@ -156,25 +243,6 @@
             .magnet{
                 background-size: cover;
             }
-        }
-    }
-}
-
-.inbound_sec{
-    .fp-controlArrow.fp-next,
-    .fp-controlArrow.fp-prev
-    {
-        border: 1px solid #222;
-        filter: none;
-    }
-    @media (max-width: 768px){
-        .fp-controlArrow.fp-next{
-            left: auto;
-            right: 10px;
-        }
-        .fp-controlArrow.fp-prev{
-            left: auto;
-            right: 50px;
         }
     }
 }

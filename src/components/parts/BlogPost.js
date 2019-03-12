@@ -10,8 +10,8 @@ function cutText(text){
 
 const BlogPost = (props) => {
 	return (
-    <a href={props.post.link} target="_blank" className="blogPost">
-      <img className="blogPost__image" src={props.post._embedded ? props.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url : placeholder} />
+    <a href={props.post.link} target="_blank" rel="noopener noreferrer" className="blogPost">
+      <img className="blogPost__image" src={props.post._embedded ? props.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url : placeholder} alt={props.post._embedded ? props.post.title.rendered : ''} />
       <p className="blogPost__text">
         {cutText(props.post.content.rendered)}
       </p>

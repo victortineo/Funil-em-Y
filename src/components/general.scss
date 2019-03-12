@@ -12,6 +12,11 @@
   z-index: 10;
   width: 100%;
 }
+@media (max-width: 338px) {
+  p, div {
+    font-size: 12px;
+  }
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -32,3 +37,4 @@
     width: 1370px;
   }
 }
+

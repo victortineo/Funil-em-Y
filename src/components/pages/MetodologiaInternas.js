@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
 import NavButton from '../parts/NavButton'
 import TextSlider from '../parts/TextSlider'
-import Magnet from '../parts/Magnet'
 // import SliderControler from '../parts/SliderControler'
-import funilEmY from '../../assets/images/metodologia/funil-em-y.png'
 
 class MetodologiaInterna extends Component {
+  constructor(){
+    super()
+    this.componentDidUpdate = this.componentDidUpdate.bind(this)
+  }
   state = {
-    slideItems: [
-      {title: 'Atrair', key: 0},
-      {title: 'Converter', key: 1},
-      {title: 'Nutrir', key: 2}
-    ],
+    toggler: false
+  }
+  handleToggler = () => {
+    this.setState(previous => ({
+      toggler: !previous.toggler
+    }))
+  }
+  componentDidUpdate(prevProps){
+    if(this.props.context !== prevProps.context){
+      this.setState({
+        slides: [...this.props.context.slider]
+      })
+    }
+  }
+  state = {
     slides: [
-      {title: '', text: 'A conversão no inbound acontece por meio de landing pages e formulários. Você oferece um material rico ao usuário, que pode ser um vídeo, infográfico ou até um áudio, em troca de informações básicas para iniciar o fluxo de cadência.', id: 0},
-      {title: '', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 1},
-      {title: '', text: 'Muitos leads irão precisar de mais informações para ficarem mais próximos de uma aquisição. Por isso, deve-se apostar em um fluxo de automação com materiais para nutrição de leads.', id: 2}
     ]
   }
   navigate = () => {
     this.props.navigation('metodologia', 1)
   }
   render() {
-    const leftItems = this.state.slideItems.filter(item => item.key < 3)
-    const rightItems = this.state.slideItems.filter(item => item.key >= 3)
+    const leftItems = this.state.slides.filter(item => item.id <= 3)
+    const rightItems = this.state.slides.filter(item => item.id > 3)
     return (
       <div className={`${this.props.secClass}`}>
         <div className={`${this.props.secClass}__buttons-wrapper`}>
@@ -60,6 +69,22 @@ class MetodologiaInterna extends Component {
               />
             </div>
         </div>
+        <div className={`${this.props.secClass}__intro-wrapper`}>
+          <h2 className={`${this.props.secClass}__intro-title`}>
+              {this.props.pageTitle} 
+              <strong className={`${this.props.secClass}__intro-title-bold`}>
+                {this.props.pageTitleSpotlight}
+              </strong>
+              <span 
+                onClick={this.handleToggler}
+                className={`${this.props.secClass}__intro-toggler`}>
+                {this.state.toggler === true ? `-` : `+`}
+              </span>
+            </h2>
+          <p className={`${this.props.secClass}__intro-text ${this.state.toggler === true ? `${this.props.secClass}__intro-text--active` : `${this.props.secClass}__intro-text--inactive`}`}>
+            {this.props.context ? this.props.context.desc : ''}
+          </p>
+        </div>        
         <div className={`${this.props.secClass}__slider-wrapper`}>
           <TextSlider 
             slides={this.state.slides}
@@ -69,12 +94,6 @@ class MetodologiaInterna extends Component {
             controlerClass={`${this.props.secClass}__slider`}
           />
         </div>
-        <div className={`${this.props.secClass}__intro-wrapper`}>
-          <h2 className={`${this.props.secClass}__intro-title`}>{this.props.pageTitle} <strong className={`${this.props.secClass}__intro-title-bold`}>{this.props.pageTitleSpotlight}</strong></h2>
-          <p className={`${this.props.secClass}__intro-text`}>
-            {this.props.introText}
-          </p>
-        </div>        
       </div>
     )
   }

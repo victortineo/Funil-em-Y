@@ -78,6 +78,9 @@
 		}
 		.navButton__line{
 			background-color: #f8be00;
+			&::before{
+				background-color: #f8be00;
+			}
 		}
 	}
 	&:hover{

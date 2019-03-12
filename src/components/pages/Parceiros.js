@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NavButton from '../parts/NavButton';
-import placeholder from '../../assets/images/quem-somos/placeholder.png'
 
 class Parceiros extends Component {
   render() { 
@@ -54,7 +53,7 @@ class Parceiros extends Component {
         </div>
         <div className="parceiros__partners">
           {this.props.clients.map((client, i) => (
-            <img className="parceiros__partner" key={`partner_${i}`} src={client.src} alt={client.alt} />
+            <img className="parceiros__partner" key={`partner_${i}`} src={client.imagem} alt={client.parceiro} />
           ))}
         </div>
       </div>

@@ -10,7 +10,7 @@ a{
 		
 	}
 }
-p, h1, h2, h3, h4, h5, h6, span, a, strong{
+body, p, h1, h2, h3, h4, h5, h6, span, a, strong, input, textarea, div{
 	font-family: 'Raleway';
 }
 .page-full{
@@ -32,27 +32,63 @@ p, h1, h2, h3, h4, h5, h6, span, a, strong{
 	&.fp-prev{
 		background-image: url('../assets/images/icons/left-arrow.png');
 		background-position: center center;
-		left: 15px;
 		width: 27px;
 		height: 27px;
 	    border: none;
 	    border: 1px solid #fff;
 	    margin: 0;
+		left: 15px;
 	}
 	&.fp-next{
 		background-image: url('../assets/images/icons/right-arrow.png');
 		background-position: center center;
-		left: calc(15px + 40px);
 		width: 27px;
 		height: 27px;
 	    border: none;
 	    border: 1px solid #fff;
 	    margin: 0;
+		left: calc(15px + 40px);
 	}
 } 
+
+.metodologia_sec{
+    .fp-controlArrow.fp-next,
+    .fp-controlArrow.fp-prev
+    {
+        border: 1px solid #222;
+        filter: none;
+        left: auto;
+        top: auto;
+        bottom: 7.5%;
+        transform: translateY(-50%);
+    }
+    .fp-controlArrow.fp-next{
+        left: 50%;
+    }
+    .fp-controlArrow.fp-prev{
+        left: calc(50% - 35px);
+    }
+    @media (min-width: 768px){
+	    .fp-controlArrow.fp-next,
+	    .fp-controlArrow.fp-prev{
+	    	transform: none;
+	        bottom: auto;
+	        top: 20%;
+	    }
+        .fp-controlArrow.fp-next{
+            left: auto;
+        	right: 5%;
+        }
+        .fp-controlArrow.fp-prev{
+            left: auto;
+        	right: calc(5% + 35px);
+        }
+    }
+}
 
 .metodologia_sec{
     background-image: url('../assets/images/metodologia/background.png');
     background-position: center;
     background-size: cover;
+    background-position: right;
 }

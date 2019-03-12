@@ -1,10 +1,17 @@
 .pageNav{
 	position: fixed;
-	right: 30px;
-	top: 50%;
-    transform: translateY(-50%);
 	cursor: pointer;
 	animation: entrance_pagenav_right .5s;
+	transform: translateX(-50%);
+	right: auto;
+	left: 50%;
+	top: auto;
+	bottom: 10%;
+	&__mobile{
+		&--inactive{
+			display: none;
+		}
+	}
 	&__arrow{
 		width: 27px;
 		height: 27px;
@@ -20,6 +27,8 @@
 		&--up{
 			background-image: url('../assets/images/icons/up-arrow.png');
 			margin-bottom: 10px;
+			// MOBILE
+			display: none;
 		}
 		&--down{
 			background-image: url('../assets/images/icons/down-arrow.png');
@@ -33,5 +42,21 @@
 			background-image: url('../assets/images/icons/left-arrow.png');
 			margin-top: 10px;
 		}
+	}
+}
+
+
+@media (min-width: 798px){
+	.pageNav{
+		right: 30px;
+		bottom: auto;
+		left: auto;
+		top: 50%;
+    	transform: translateY(-50%);
+    	&__arrow{
+    		&--up{
+    			display: block;
+    		}
+    	}
 	}
 }

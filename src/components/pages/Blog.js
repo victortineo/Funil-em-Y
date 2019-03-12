@@ -19,7 +19,6 @@ class blog extends Component {
     fetch("http://layerup.com.br/wp-json/wp/v2/posts?per_page=3&_embed", { headers: { "Content-Type": "application/json; charset=utf-8" }})
     .then(res => res.json())
     .then((response) => (
-      console.log(response),
       this.setState({
         posts: [...response],
         loading: false

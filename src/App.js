@@ -12,10 +12,12 @@ import Jornada from './components/pages/Jornada'
 import Parceiros from './components/pages/Parceiros'
 import Clientes from './components/pages/Clientes'
 import Blog from './components/pages/Blog'
+import Contato from './components/pages/Contato'
 import Header from './components/header'
 import NavSocial from './components/nav-social'
 import Footer from './components/footer'
 import PageNav from './components/PageNav'
+import * as API from './api'
 
 // devOnly
 import inboundRd from './assets/images/parceiros/inbound-rd.jpg'
@@ -32,8 +34,27 @@ class App extends Component {
     firstSection: true,
     lastSection: false,
     pageName: 'Home',
-    magnetWrapper: 'magnet__wrapper--null'
+    magnetWrapper: 'magnet__wrapper--null',
+    o_que_fazemos: {},
+    home: {},
+    metodologia: {},
+    quem_somos: {}
   }
+
+  componentDidMount = () => {
+    API.getPosts('home')
+    .then(resp => this.setState({home: resp[0].content.rendered}))
+    API.getPosts('metodologia')
+    .then(resp => this.setState({metodologia: resp[0]}))
+    API.getPosts('quem-somos')
+    .then(resp => this.setState({quem_somos: resp[0]}))
+    API.getPosts('o-que-fazemos')
+    .then(resp => this.setState({o_que_fazemos: resp[0]}))
+    // API.getPosts('contato')
+    // .then(resp => this.setState({contato: resp[0]}))
+  }
+
+
 
   menuOverlay = () => {
     this.setState(currentState => ({
@@ -65,11 +86,12 @@ class App extends Component {
   }
 
   isWhite(index){
-    if(index === 0 || index === 2){
+    if(index % 2 === 0){
       return true
     }
     return false
   }
+
   render() {
     return (
         <ReactFullpage
@@ -79,7 +101,7 @@ class App extends Component {
           onLeave={this.onLeave.bind(this)}
           onSlideLeave={this.onSlideLeave.bind(this)}
           afterRender={this.pageLoaded.bind(this)}
-          anchors={['home', 'metodologia', 'quem-somos', 'o-que-fazemos']}
+          anchors={['home', 'metodologia', 'quem-somos', 'o-que-fazemos', 'contato']}
           loopHorizontal={false}
           render={({ state, fullpageApi }) => {
             return (
@@ -110,6 +132,7 @@ class App extends Component {
                       index={this.state.sectionIndex}
                       navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
                       nextPage='metodologia'
+                      text={this.state.home}
                     />
                   </div>
                   <div className="section metodologia_sec" data-name="metodologia">
@@ -120,6 +143,7 @@ class App extends Component {
                       <Metodologia
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.metodologia.acf ? this.state.metodologia.acf.paginas[0] : this.state.metodologia}
                       />
                     </div>
                     <div className="slide" data-anchor="inbound">
@@ -130,16 +154,17 @@ class App extends Component {
                         secClass="inbound"
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.metodologia.acf ? this.state.metodologia.acf.paginas[1] : this.state.metodologia}
                       />
                     </div>
                     <div className="slide" data-anchor="outbound">
                       <MetodologiaInternas
                         pageTitle="Outbound"
                         pageTitleSpotlight="Marketing 2.0"
-                        introText="Se o outbound marketing é uma estratégia muito antiga, inclusive considerada ultrapassada por alguns, por que ainda usamos? Simples: porque gera resultados!"
                         secClass="outbound"
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.metodologia.acf ? this.state.metodologia.acf.paginas[2] : this.state.metodologia}
                       />
                       
                     </div>
@@ -151,6 +176,8 @@ class App extends Component {
                         secClass="pontes"
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.metodologia.acf ? this.state.metodologia.acf.paginas[3] : this.state.metodologia}
+
                       />
                     </div>
                     <div className="slide" data-anchor="processos-comerciais">
@@ -161,6 +188,7 @@ class App extends Component {
                         secClass="processo"
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.metodologia.acf ? this.state.metodologia.acf.paginas[4] : this.state.metodologia}
                       />
                     </div>
                   </div>
@@ -176,77 +204,27 @@ class App extends Component {
                       <ALayer
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.quem_somos.acf}
                       />
                     </div>
                     <div className="slide" data-anchor="jornada">
                       <Jornada
                         index={this.state.sectionIndex}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        context={this.state.quem_somos.acf}
                       />
                     </div>
                     <div className="slide" data-anchor="parceiros">
                        <Parceiros
                         index={this.state.sectionIndex}
-                        clients={[
-                          {src: inboundRd, alt: 'Certificado em Inbound Marketing, ResultadosDigitais'},
-                          {src: platinumRd, alt: 'Platinum Partner, Rd Station'},
-                          {src: googlePartner, alt: 'Google Partner'},
-                          {src: clint, alt: 'We are Clint'}
-                        ]}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        clients={this.state.quem_somos.acf ? this.state.quem_somos.acf.parceiros : []}
                       />
                     </div>
                     <div className="slide" data-anchor="clientes">
                       <Clientes
                         index={this.state.sectionIndex}
-                        clients={[
-                          {src: clientPlaceholder, alt: 'Certificado em Inbound Marketing, ResultadosDigitais'},
-                          {src: clientPlaceholder, alt: 'Platinum Partner, Rd Station'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'Google Partner'},
-                          {src: clientPlaceholder, alt: 'We are Clint'}
-                        ]}
+                        clients={this.state.quem_somos.acf ? this.state.quem_somos.acf.clientes : []}
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
                       />
                     </div>                    
@@ -260,7 +238,11 @@ class App extends Component {
                   <div className="section" data-name="o-que-fazemos">
                     <Fazemos 
                         navigation={(section, slide=0) => fullpageApi.moveTo(section, slide)}
+                        slides={this.state.o_que_fazemos}
                     />
+                  </div>
+                  <div className="section" data-name="contato">
+                    <Contato />
                   </div>
                 </ReactFullpage.Wrapper>
               </React.Fragment>

@@ -16,38 +16,34 @@
     }
     &__navWrapper{
         width: 200px;
+    	position: absolute;
         .navButton{
             width: 100%;
         }
-    	position: absolute;
-    	&--inbound{
-            top: 30px;
-            left: 0;
+        &--outbound{
+            top: 0px;
             &--animated{
-                animation: metodologia-inbound-entrance 1.5s;
+                animation: outbound-outbound-entrance 1.5s;
             }
-    	}    	
-    	&--outbound{
-            top: 70px;
-            left: 0;
+        }       
+        &--outbound{
+            top: 40px;
             &--animated{
-                animation: metodologia-outbound-entrance 1.5s;
+                animation: outbound-outbound-entrance 1.5s;
             }
-    	}
-    	&--pontes{
-            top: 110px;
-            left: 0;
+        }
+        &--pontes{
+            top: 80px;
             &--animated{
-                animation: metodologia-pontes-entrance 1.5s;
+                animation: outbound-pontes-entrance 1.5s;
             }
-    	}
-    	&--processo{
-            top: 150px;
-            left: 0;
+        }
+        &--processo{
+            top: 120px;
             &--animated{
-                animation: metodologia-processo-entrance 1.5s;
+                animation: outbound-processo-entrance 1.5s;
             }
-    	}
+        }
     }
     // &__slider-wrapper{
     //     position: absolute;
@@ -122,30 +118,4 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-}
-.metodologia_sec{
-    .fp-controlArrow.fp-next,
-    .fp-controlArrow.fp-prev
-    {
-        border: 1px solid #222;
-        filter: none;
-        left: auto;
-        top: 15%;
-    }
-    .fp-controlArrow.fp-next{
-        right: 5%;
-    }
-    .fp-controlArrow.fp-prev{
-        right: calc(5% + 35px);
-    }
-    @media (max-width: 768px){
-        .fp-controlArrow.fp-next{
-            left: auto;
-            right: 10px;
-        }
-        .fp-controlArrow.fp-prev{
-            left: auto;
-            right: 50px;
-        }
-    }
 }

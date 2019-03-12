@@ -2,6 +2,7 @@
 	background-image: url('../assets/images/metodologia/background.png');
     background-position: center;
     background-size: cover;
+    background-position: right;
     position: absolute;
     left: 0;
     top: 0;
@@ -12,22 +13,38 @@
     	position: absolute;
     	color: #282828;
 		font-size: 80px;
-		font-weight: 700;
 		line-height: 90px;
 		font-weight: 400;
-		top: 10%;
+		// top: 10%;
 		left: 15%;
+	    transition: ease 1.3s;
+
+		left: 5%;
+		font-size: 30px;
+		line-height: 40px;
+		// Mobile
+		bottom: 20%;
+		font-size: 40px;
+		line-height: 50px;
+		&--open{
+	    	bottom: 68%;
+	    }
     }
     &__content{
     	position: absolute;
 	    max-width: 380px;
-	    right: 10%;
-	    top: 50%;
+	    width: 80%;
+	    left: 5%;
+	    font-size: 12px;
 	    transform: translateY(-50%);
 	    max-height: 0;
 	    height: auto;
 	    transition: ease 2s;
 	    overflow: hidden;
+	    // mobile
+	    transform: none;
+	    top: auto;
+	    bottom: 10%;
 	    &--open{
 	    	max-height: 100%;
 	    }
@@ -43,19 +60,33 @@
     	position: absolute;
     	left: 30%;
     	bottom: 20%;
+	    transition: ease 1.8s;
+
+    	// Mobile
+	    left: 5%;
+	    bottom: 17.5%;
+	    width: 85%;
+	    &--open{
+	    	bottom: 65%;
+	    }
     }
     &__list{
     	list-style: none;
     	padding: 0;
-    	margin: 80px 0 0;
+    	margin: 0;
+    	// Mobile
+        display: flex;
+    	flex-wrap: wrap;
+    	width: 100%;
     }
     &__list-item{
-    	color: #d9d9d9;
-		font-size: 24px;
 		font-weight: 700;
-		line-height: 44.16px;
 		transition: .5s;
 		cursor: pointer;
+	    font-size: 14px;
+    	margin: 5px;
+    	color: #999;
+    	cursor: pointer;
 		&--active{
 			color: #282828;
 		}
@@ -64,15 +95,17 @@
 		background-image: url('../assets/images/fazemos/notebook.png');
 		background-size: contain;
 		background-repeat: no-repeat;
-		height: 50%;
-		width: 25%;
+
 		max-width: 327px;
 		max-height: 466px;
 		position: absolute;
-		right: 15%;
+		right: 7%;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-75%) rotate(-50deg);
 		transition: ease 1s;
+		// Mobile
+		width: 275px;
+		height: 275px;
 		&--open{
 			top: -35%;
 	    	transform: rotate(-90deg);
@@ -83,12 +116,19 @@
 		background-image: url('../assets/images/fazemos/cup.png');
 		background-size: contain;
 		background-repeat: no-repeat;
-		width: 12%;
-		height: 10%;
 		position: absolute;
 		right: 28%;
-		top: 20%;
+		
+		top: 35%;
+
 		transition: ease 1.5s;
+		// Mobile
+		left: 10%;
+		right: auto;
+		top: 25%;
+		width: 80px;
+		height: 80px;
+		transform: rotate(-50deg);
 		&--open{
 			top: -5%;
     		right: 33%;
@@ -104,7 +144,16 @@
 		position: absolute;
 		right: 28%;
 		bottom: 15%;
+
+		bottom: 25%;
+
 		transition: ease .5s;
+		// Mobile
+		width: 80px;
+		height: 80px;
+		transform: rotate(-50deg);
+		right: 22%;
+		bottom: 26%;
 		&--open{
 			bottom: -5%;
 		}
@@ -118,7 +167,16 @@
 		position: absolute;
 		right: 15%;
 		bottom: 15%;
+
+		bottom: 22%;
+
 		transition: ease 1s;
+		// Mobile
+		transform: rotate(-50deg);
+		width: 70px;
+		height: 70px;
+		right: 5%;
+		bottom: 40%;
 		&--open{
 			bottom: -5%;
 		}
@@ -134,19 +192,111 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px){
     .fazemos{
+    	&__title{
+    		top: 15%;
+			left: 10%;
+			font-size: 50px;
+			line-height: 60px;
+    	}
+    	&__content{
+    		font-size: 16px;
+    		bottom: auto;
+    		transform: translateY(-50%);
+    		top: 50%;
+    		left: auto;
+    		right: 12%;
+    	}
+    	&__listWrapper{
+			left: 10%;
+			bottom: 20%;
+    	}
+    	&__list{
+    		display: block;
+    	}
+    	&__list-item{
+    		font-size: 24px;
+			line-height: 28.16px;
+			margin: 0;
+    	}
+		&__notebook{
+			right: 7%;
+			top: 50%;
+			transform: translateY(-50%);
+			&--open{
+				top: -28%;
+				-webkit-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				right: 2%;
+			}
+		}
+		&__cup{
+			right: 25%;
+			left: auto;
+			top: 25%;
+			transform: none;
+			width: 75px;
+			height: 75px;
+			&--open{
+				top: -5%;
+	    		right: 33%;
+	    		transform: rotate(-90deg);
+			}
+		}
+		&__phone{
+			width: 12%;
+			height: 10%;
+			right: 28%;
+			bottom: 25%;
+			transform: none;
+			&--open{
+				bottom: -5%;
+			}
+		}
+		&__cactus{
+			width: 12%;
+			height: 10%;
+			right: 15%;
+			bottom: 25%;
+			transform: none;
+			&--open{
+				bottom: -5%;
+			}
+		}
     }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
     .fazemos{
+    	&__title{
+    		top: 10%;
+			left: 15%;
+			font-size: 80px;
+			font-weight: 700;
+			line-height: 90px;
+    	}
+    	&__content{
+    		right: 10%;
+    	}
+    	&__listWrapper{
+			left: 30%;
+			bottom: 20%;
+    	}
     }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1380px) {
     .fazemos{
+		&__title{
+    		top: 10%;
+			left: 15%;
+    	}
     	&__content{
-    		max-width: 450px;
+    		max-width: 550px;
+    		right: 15%;
+    	}
+    	&__list-item{
+    		line-height: 44.16px;
     	}
     }
 }

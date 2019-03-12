@@ -6,9 +6,9 @@ class VerticalSliderAlt extends Component{
 	constructor(){
 		super()
 		this.renderDots = this.renderDots.bind(this)
-	}
+   		this.componentDidUpdate = this.componentDidUpdate.bind(this)
+  	}
 	state = {
-		slideActive: 0,
 		animated: false,
 		slidesLength: 0,
 		active: 0,
@@ -22,6 +22,15 @@ class VerticalSliderAlt extends Component{
 			slidesLength: this.props.slides.length
 		})
 	}
+
+  	componentDidUpdate(prevProps){
+	    if(this.props.slides !== prevProps.slides){
+			this.setState({
+				slides: [...this.props.slides],
+				slidesLength: this.props.slides.length
+			})
+	    }
+  	}
 
 	componentWillUnmount = () =>{
 		this.setState(({
@@ -37,7 +46,7 @@ class VerticalSliderAlt extends Component{
 	}
 	setPosition = (i) => {
 		const el = document.getElementById(`image_${i + 1}`).offsetTop
-		this.props.style === 'lateral' ? 
+		this.props.type === 'lateral' ? 
 			document.getElementById(this.props.sliderId).scrollTop = el - 220
 			: document.getElementById(this.props.sliderId).scrollTop = el - 120
 	}
@@ -47,7 +56,6 @@ class VerticalSliderAlt extends Component{
 	}
 	handleScroll(e){
 		e = document.getElementById(this.props.sliderId)
-		console.log(e.scrollTop)
 		if(this.state.sliderHeight === 0){
 			const offset = document.getElementById(`image_${this.state.slidesLength}`).offsetTop
 			this.setState({
@@ -71,7 +79,7 @@ class VerticalSliderAlt extends Component{
 		}
 	}
 	renderDots(){
-		if(this.props.style === 'lateral') { 
+		if(this.props.type === 'lateral') { 
 			return(
 				this.state.slides.map( (a, i) => (
 					<p 
@@ -80,7 +88,7 @@ class VerticalSliderAlt extends Component{
 						key={`verticalSliderAltText_${i}`}
 						id={`verticalSliderAltText_${i}`}
 						>
-						{a.title}
+						{a.ano}
 						<span 
 							className={`verticalSliderAlt__dot ${this.state.active === i ? 'verticalSliderAlt__dot--active' : ''}`}
 							key={`verticalSliderAltDots_${i}`}
@@ -111,9 +119,9 @@ class VerticalSliderAlt extends Component{
 
 	render(){
 		return (
-			<div className={`verticalSliderAlt ${this.props.style === 'lateral' ? '' : 'verticalSliderAlt--horizontal'}`}>
-				<div className={`verticalSliderAlt__controler ${this.props.style === 'lateral' ? '' : 'verticalSliderAlt__controler--horizontal'}`}>
-					<div className={`verticalSliderAlt__dots ${this.props.style === 'lateral' ? '' : 'verticalSliderAlt__dots--horizontal'}`}>
+			<div className={`verticalSliderAlt ${this.props.type === 'lateral' ? '' : 'verticalSliderAlt--horizontal'}`}>
+				<div className={`verticalSliderAlt__controler ${this.props.type === 'lateral' ? '' : 'verticalSliderAlt__controler--horizontal'}`}>
+					<div className={`verticalSliderAlt__dots ${this.props.type === 'lateral' ? '' : 'verticalSliderAlt__dots--horizontal'}`}>
 						{this.renderDots()}
 					</div>
 				</div>
@@ -126,24 +134,26 @@ class VerticalSliderAlt extends Component{
 					<div 
 						className={`verticalSliderAlt__slider`}
 						onWheel={(e) => this.handleScroll(e)}
+						onTouchMove={(e) => this.handleScroll(e)}
 						id={this.props.sliderId}
 					>
 						{this.state.slides.length !== 0 ? 
 							this.state.slides.map((slide, i) => (
 								<div 
-									className={`verticalSliderAlt__slide ${this.props.style === 'lateral' ? '' : 'verticalSliderAlt__slide--horizontal'} ${this.state.active === i ? 'verticalSliderAlt__slide--imageActive' : 
+									className={`verticalSliderAlt__slide ${this.props.type === 'lateral' ? '' : 'verticalSliderAlt__slide--horizontal'} ${this.state.active === i ? 'verticalSliderAlt__slide--imageActive' : 
 									this.state.active > i ? 'verticalSliderAlt__slide--imageInactiveTop' : 'verticalSliderAlt__slide--imageInactiveBottom' }`}
-									id={slide.key}
-									key={slide.key}
+									id={`image_${slide.id}`}
+									key={`image_${slide.id}`}
 									>
 									<img 
 										className="verticalSliderAlt__image" 
-										src={slide.src}
+										src={slide.imagem}
+										alt={slide.desc}
 										onClick={(e) => this.setActiveSlide(i, e)}
 									/>
-									{this.props.style === 'lateral' ? 
+									{this.props.type === 'lateral' ? 
 									<p className="verticalSliderAlt__controler-text" key={`verticalSliderAltText_${this.state.active}`}>
-										{this.state.slides.length !== 0 ? slide.text : ''}
+										{this.state.slides.length !== 0 ? slide.texto : ''}
 									</p>
 									: '' }
 								</div>

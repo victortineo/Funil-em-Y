@@ -6,7 +6,7 @@ class Clientes extends Component {
     return (
       <div className="clientes">
         <div className="clientes__navWrapper">
-                    <div className={`clientes__nav clientes__nav--a-layer ${this.props.index === 2 && (`clientes__nav--a-layer--animated`)}`}>
+          <div className={`clientes__nav clientes__nav--a-layer ${this.props.index === 2 && (`clientes__nav--a-layer--animated`)}`}>
             <NavButton 
                 horizontal={true}
                 selected={false}
@@ -54,7 +54,7 @@ class Clientes extends Component {
         <div className="clientes__clients-wrapper">
           <div className="clientes__clients">
             {this.props.clients.map((client, i) => (
-              <img className="clientes__client" key={`client_${i}`} src={client.src} alt={client.alt} />
+              <img className="clientes__client" key={`client_${i}`} src={client.imagem} alt={client.nome} />
             ))}
           </div>
         </div>

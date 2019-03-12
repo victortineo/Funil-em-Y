@@ -1,9 +1,144 @@
 .contato{
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100vw;
+	background-image: url('../assets/images/contato/background.png');
+	background-size: cover;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100vw;
+	color: #fff;
+
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	&__main-info{
+		position: relative;		
+		margin-left: 5%;
+		max-width: 414px;
+		width: 80%;
+	}
+	&__title{
+		// position: absolute;
+		color: #f8be00;
+		font-weight: 700;
+		font-size: 60px;
+		line-height: 70px;
+		margin: 0;
+	}
+	&__desc{
+		margin-top: 0;
+	}
+	&__address{
+		position: relative;		
+		left: 5%;
+		margin-top: 20px;
+		// bottom: 20%;
+		font-style: normal;
+		font-size: 16px;
+	}
+	&__form_toggler{
+		position: relative;
+		margin-left: 5%;
+		border: none;
+		background-color: #f8be00;
+		padding: 10px;
+		color: #fff;
+		font-weight: 700;
+		text-transform: uppercase;
+		max-width: 220px;
+	}
+	&__form_toggler-inside{
+		border: none;
+		background: none;
+		color: #fff;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 22px;
+		position: relative;
+		top: -5px;
+		// right: -50%;
+	}
+	&__form{
+		position: absolute;	
+		width: 80%;
+		transition: ease .5s;
+		top: 0;
+		left: -100vw;
+		// mobile
+		height: 100vh;
+		width: 100vw;
+		background-color: rgba(#000, .9);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		max-width: none;
+		z-index: 1;
+		&--mobile{
+			padding: 2em;
+			left: 0
+		}
+	}
+	&__form-overlay{
+		left: auto;
+		right: 10%;
+		top: 25%;
+	}
+	&__input-wrapper, &__text-wrapper{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 7px;
+		flex-wrap: wrap;
+	}
+	&__form-input{
+		flex-basis: 100%;
+		border-radius: 10px;
+		margin: 2px 0px;
+		border: 1px solid #fff;
+		background: none;
+		color: #fff;
+		padding: 10px 7px;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		outline: none;
+		&--full{
+			flex-basis: 100%;
+		}
+		&::placeholder{
+			color: #fff;
+			opacity: .9;
+		}
+	}
+	&__textarea{
+		border-radius: 10px;
+		border: 1px solid #fff;
+		background: none;
+		color: #fff;
+		width: 100%;
+		padding: 10px;
+		color: #ffffff;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		outline: none;
+		&::placeholder{
+			color: #fff;
+			opacity: .9;
+		}
+	}
+	&__submit{
+		background-color: #f8be00;
+		border-radius: 10px;
+		width: 100%;
+		border: none;
+		padding: 12px 0;
+		font-size: 12px;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
 }
 
 @media (min-width: 576px) {}
@@ -13,10 +148,101 @@
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+	.contato{
+		display: block;
+		&__main-info{
+			position: absolute;
+			left: 5%;
+			top: 25%;
+			padding: 0;
+			margin: 0;
+			max-width: 400px;
+		}
+		&__title{
+			position: absolute;
+			font-size: 80px;
+			line-height: 90px;		
+			top: -95px;			
+			padding: 0;
+			margin: 0;
+		}
+		&__desc{}
+		&__address{
+			position: absolute;
+			left: 5%;
+			bottom: 20%;
+			padding: 0;
+			margin: 0;			
+		}
+		&__form{
+			background: none;
+			max-width: 400px;
+			min-height: 400px;
+			height: auto;
+			left: auto;
+			right: 10%;
+			width: 75%;
+			top: 25%;
+		}
+		&__form_toggler{display: none;}
+		&__form_toggler-inside{display: none;}
+		&__input-wrapper, &__text-wrapper{}
+		&__form-input{
+			flex-basis: 48%;
+			&--full{
+				flex-basis: 100%;
+			}
+		}
+		&__textarea{}
+		&__submit{}
+	}
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1380px) {
-  .contato{
+  	.contato{
+		display: block;
+		&__main-info{
+			position: absolute;
+			left: 15%;
+			top: 25%;
+			padding: 0;
+			margin: 0;
+		}
+		&__title{
+			position: absolute;
+			font-size: 80px;
+			line-height: 90px;		
+			top: -95px;			
+			padding: 0;
+			margin: 0;
+		}
+		&__desc{}
+		&__address{
+			position: absolute;
+			left: 15%;
+			bottom: 20%;
+			padding: 0;
+			margin: 0;			
+		}
+		&__form{
+			min-height: 400px;
+			height: auto;
+			left: auto;
+			right: 15%;
+			width: 80%;
+			top: 25%;
+		}
+		&__form_toggler{display: none;}
+		&__form_toggler-inside{display: none;}
+		&__input-wrapper, &__text-wrapper{}
+		&__form-input{
+			flex-basis: 48%;
+			&--full{
+				flex-basis: 100%;
+			}
+		}
+		&__textarea{}
+		&__submit{}
   }
 }

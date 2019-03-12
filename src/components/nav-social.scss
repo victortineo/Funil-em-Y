@@ -1,6 +1,6 @@
 .nav-social{
 	position: fixed;
-    right: 20px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     transform-origin: 80% -50%;
@@ -10,6 +10,8 @@
 		display: flex;
 		color: #282828;
 		transition: ease .5s;
+		width: 280px;
+    	justify-content: space-between;
 	}
 	&__link{
 		margin-right: 10px;
@@ -17,7 +19,7 @@
 	}
 	&__link-anchor{
 		font-family: Raleway;
-		font-size: 14px;
+		font-size: 12px;
 		text-decoration: none;
 	}
 }    
@@ -28,6 +30,9 @@
 @media (min-width: 768px){
 	.nav-social{
 		right: 80px;
+		&__link-anchor{
+			font-size: 14px;
+		}
 	}
 }
 // Large devices (desktops, 992px and up)
