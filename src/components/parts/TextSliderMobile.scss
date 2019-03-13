@@ -1,0 +1,35 @@
+.textSlider-mobile{
+    position: absolute;
+    bottom: 20%;
+    right: 12%;
+    width: 200px;
+    text-align: left;
+    &__title{
+		color: #b6b7b8;
+		font-size: 14px;
+		font-weight: 700;
+        text-transform: uppercase;
+        transition: .3s ease;
+        &--open{
+            color: #282828;
+        }
+	}
+	&__desc{
+		color: #282828;
+		font-weight: 400;
+        height: auto;
+        overflow: hidden;
+        max-height: 0;
+        transition: .7s ease;
+        font-size: 12px;
+        &--open{
+            max-height: 1000px;
+        }
+    }
+}
+
+@media (min-width: 768px){
+    .textSlider-mobile{
+        display: none;
+    }
+}

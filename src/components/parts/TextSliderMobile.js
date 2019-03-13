@@ -26,16 +26,6 @@ class TextSlider extends Component{
 	      animated: true
 	    }))
 	}
-	setNext = () => {
-		this.state.slideActive < this.state.slidesLength && (
-			this.setCurrentSlide(this.state.slideActive + 1)
-		)
-	}
-	setBefore = () => {
-		this.state.slideActive - 1 > 0 && (
-			this.setCurrentSlide(this.state.slideActive - 1)
-		)
-	}
 
 	componentDidMount = () => {
 		this.setState({
@@ -43,26 +33,21 @@ class TextSlider extends Component{
 		})
 	}
 
-	componentWillUnmount = () =>{
-		this.setState(({
-	      animated: false
-	    }))
-	}
-
 	render(){
 		return (
 			<React.Fragment>
-				<div className={`${this.props.controlerClass}-mobile__slider`}>
+				<div className={`${this.props.controlerClass}-mobile`}>
 					{/*TODO: Adicionar regras de abertura*/}
 					{/*TODO: Remover regras não usadas*/}
 					{/*TODO: Aplicar os estilos corretos*/}
 					{/*TODO: Aplicar no COMPONENTE PAI a validação para qual tem que estar visível*/}
 					{this.props.slides.map(slide => 
-						<div key={`slideMobile__${slide.id}`} className={`${this.props.controlerClass}-mobile__slider-slide`}>
-							<div className={`${this.props.controlerClass}-mobile__slider-title`}>
-								{slide.titulo}
+						<div key={`slideMobile__${slide.id}`} className={`${this.props.controlerClass}-mobile__slide`}>
+							<div className={`${this.props.controlerClass}-mobile__title ${this.state.slideActive === parseInt(slide.id) && `${this.props.controlerClass}-mobile__title--open `}`} 
+								onClick={() => this.setCurrentSlide(slide.id)}>
+								{slide.titulo} 
 							</div>
-							<div className={`${this.props.controlerClass}-mobile__slider-title`}>
+							<div className={`${this.props.controlerClass}-mobile__desc ${this.state.slideActive === parseInt(slide.id) && `${this.props.controlerClass}-mobile__desc--open `}`}>
 								{slide.desc}
 							</div>
 						</div>

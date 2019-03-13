@@ -97,7 +97,7 @@ class App extends Component {
         <ReactFullpage
           menu='.menu'
           fixedElements='.fixedElements'
-          normalScrollElements='.verticalSliderAlt__slider, .verticalSliderAlt__slide, .clientes__clients, .clientes__client'
+          normalScrollElements='.verticalSliderAlt__slider, .verticalSliderAlt__slide, .clientes__clients, .clientes__client, .blog__posts'
           onLeave={this.onLeave.bind(this)}
           onSlideLeave={this.onSlideLeave.bind(this)}
           afterRender={this.pageLoaded.bind(this)}

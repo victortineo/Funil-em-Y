@@ -2,10 +2,14 @@
     max-width: 250px;
     width: 100%;
     display: block;
+    // mobile
+    min-width: 68%;
   &__image{
     width: 100%;
     object-fit: cover;
     height: 120px;
+    // mobile
+    height: 100px;
   }
   &__text{
     margin: 10px 0;

@@ -164,6 +164,23 @@
     }
 }
 
+@media (max-width: 370px){
+    .inbound{
+        &__intro-title{
+            font-size: 32px;
+            line-height: 30px;
+        }
+        &__intro-toggler{
+            margin-top: 15px;
+        }
+        &__slider-wrapper{
+            margin: 0;
+        }
+        &__buttons-wrapper{
+            margin-bottom:15px;
+        }
+    }
+}
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px){
     .inbound{

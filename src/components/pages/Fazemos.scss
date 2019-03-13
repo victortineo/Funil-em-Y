@@ -12,20 +12,13 @@
     &__title{
     	position: absolute;
     	color: #282828;
-		font-size: 80px;
-		line-height: 90px;
 		font-weight: 400;
-		// top: 10%;
-		left: 15%;
 	    transition: ease 1.3s;
-
 		left: 5%;
-		font-size: 30px;
-		line-height: 40px;
-		// Mobile
-		bottom: 20%;
+		bottom: 23%;
 		font-size: 40px;
 		line-height: 50px;
+		z-index: 1;
 		&--open{
 	    	bottom: 68%;
 	    }
@@ -183,6 +176,20 @@
 	}
 }
 
+@media (max-width: 370px) {
+    .fazemos{
+		&__title{
+			bottom: 32%;
+			font-size: 25px;
+			line-height: 30px;
+			margin: 0;
+			left: 7%;
+			&--open {
+				bottom: 78%;
+			}
+		}
+    }
+}
 @media (min-width: 576px) {
     .fazemos{
 
@@ -197,6 +204,7 @@
 			left: 10%;
 			font-size: 50px;
 			line-height: 60px;
+			height: 120px;
     	}
     	&__content{
     		font-size: 16px;

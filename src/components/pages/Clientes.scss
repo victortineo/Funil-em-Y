@@ -4,24 +4,30 @@
   left: 0;
   height: 100%;
   width: 100vw;
+  overflow: hidden;
   &__navWrapper{
     position: absolute;
     width: 200px;
-    bottom: 15%;
-    left: 15%;
     display: flex;
     flex-direction: column;
     height: 200px;
     justify-content: space-between;
+    top: 23%;
+    right: 15%;
   }
   &__clients-wrapper{
-    width: 350px;
-    position: absolute;
-    right: 15%;
-    top: 50%;
-    transform: translateY(-50%);
     height: 50%;
+    position: absolute;
     overflow: hidden;
+    // mobile
+    right: 0;
+    max-width: 80%;
+    margin: 0 auto;
+    width: 100%;
+    transform: none;
+    left: 0;
+    max-height: 250px;
+    bottom: 10%;
   }
   &__clients{
     overflow-y: scroll;
@@ -78,6 +84,22 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px){
+  .clientes{
+    &__navWrapper{
+      bottom: 15%;
+      left: 10%;
+      right: auto;
+      top: auto;
+    }
+    &__clients-wrapper{
+      width: 350px;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: auto;
+      max-height: none;
+    }
+  }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
@@ -87,8 +109,8 @@
 @media (min-width: 1380px) {
   .clientes{
     &__navWrapper{
-      bottom: 25%;
-      left: 35%;
+      bottom: 20%;
+      left: 25%;
     }
     &__clients-wrapper{
       width: 500px;

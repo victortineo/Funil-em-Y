@@ -8,38 +8,42 @@
     	top: 10%;
         width: 100%;
     }
+    &__slider-desk{
+        display: none;
+    }
     &__y{
-        width: 200px;
-        float: right;
-        margin-right: 45px;
-        margin-top: 25px;
+        left: -55%;
+        height: 75vh;
+        position: absolute;
+
     }
     &__navWrapper{
         width: 200px;
-    	position: absolute;
+        position: absolute;
+        right: 17%;
         .navButton{
             width: 100%;
         }
-        &--outbound{
-            top: 0px;
+        &--inbound{
+            top: 40px;
             &--animated{
-                animation: outbound-outbound-entrance 1.5s;
+                animation: inbound-inbound-entrance 1.5s;
             }
         }       
         &--outbound{
-            top: 40px;
+            top: 80px;
             &--animated{
                 animation: outbound-outbound-entrance 1.5s;
             }
         }
         &--pontes{
-            top: 80px;
+            top: 120px;
             &--animated{
                 animation: outbound-pontes-entrance 1.5s;
             }
         }
         &--processo{
-            top: 120px;
+            top: 160px;
             &--animated{
                 animation: outbound-processo-entrance 1.5s;
             }
@@ -66,10 +70,14 @@
             transform: translate(-50%, -50%);
             width: auto;
         }
+        &__slider-desk{
+            display: block;
+        }
         &__y{
             width: 100%;
             float: none;
             margin: 0;
+            position: relative;
         }
         &__navWrapper{
             width: auto;

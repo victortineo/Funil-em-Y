@@ -59,18 +59,20 @@ class Metodologia extends Component {
             </div>
         </div>
         <div className="metodologia__slider-wrapper">
-          {/*<TextSlider 
-            slides={this.state.slides}
-            leftItems={this.state.slides.filter(item => item.id <= 3)}
-            rightItems={this.state.slides.filter(item => item.id > 3)}
-            setCurrentSlide={(key) => this.setCurrentSlide(key)}
-            controlerClass='textSlider'
-          /> */}
-          <TextSliderMobile
-            slides={this.state.slides}
-            setCurrentSlide={(key) => this.setCurrentSlide(key)}
-            controlerClass='textSlider'
-          />
+          <div className="metodologia__slider-desk">
+            <TextSlider 
+              slides={this.state.slides}
+              leftItems={this.state.slides.filter(item => item.id <= 3)}
+              rightItems={this.state.slides.filter(item => item.id > 3)}
+              setCurrentSlide={(key) => this.setCurrentSlide(key)}
+              controlerClass='textSlider'
+            />
+          </div>
+            <TextSliderMobile
+              slides={this.state.slides}
+              setCurrentSlide={(key) => this.setCurrentSlide(key)}
+              controlerClass='textSlider'
+            />
         </div>
         
       </div>
