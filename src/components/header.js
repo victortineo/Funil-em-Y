@@ -13,6 +13,9 @@ class header extends Component{
 			menu: !(this.state.menu)
 		}, this.props.overlay())
 	}
+	componentDidMount = () =>{
+		document.body.addEventListener('scroll', (e) => console.log(e.target))
+	}
 
 	render(){
 		return (

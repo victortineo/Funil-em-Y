@@ -51,15 +51,16 @@
 			opacity: 0;
 			transition: .2s;
 			left: calc(75% - 180px);
-			top: calc(100% - 220px);
+			top: calc(100% - 90px);
 		}
 		&--inbound{
 			left: calc(75% - 180px);
-			top: calc(100% - 220px);
+			top: calc(100% - 90px);
 		}
 		&--outbound{
 			left: 10%;
-			top: calc(100% - 220px);
+			top: calc(100% - 90px);
+			transform: translateY(-50%);
 		}
 		&--pontes{
 			left: 10%;

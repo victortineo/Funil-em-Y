@@ -77,7 +77,8 @@
             width: 100%;
             float: none;
             margin: 0;
-            position: relative;
+            position: initial;
+            height: auto;
         }
         &__navWrapper{
             width: auto;

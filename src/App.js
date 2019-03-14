@@ -19,13 +19,6 @@ import Footer from './components/footer'
 import PageNav from './components/PageNav'
 import * as API from './api'
 
-// devOnly
-import inboundRd from './assets/images/parceiros/inbound-rd.jpg'
-import platinumRd from './assets/images/parceiros/platinum-rd.jpg'
-import googlePartner from './assets/images/parceiros/google-partner.jpg'
-import clint from './assets/images/parceiros/clint.jpg'
-import clientPlaceholder from './assets/images/clientes/placeholder.png'
-
 class App extends Component {
   state = {
     overlay: false,
@@ -196,8 +189,9 @@ class App extends Component {
                     <div className="quem-somos__bg-overlay"></div>
                     <div className="quem-somos__logo-wrapper">
                       <Logo />
-                      <p className="quem-somos__text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      <p className="quem-somos__text"
+                        dangerouslySetInnerHTML={{__html: this.state.quem_somos.content && this.state.quem_somos.content.rendered}}
+                      >
                       </p>
                     </div>
                     <div className="slide" data-anchor="porque-a-layer">

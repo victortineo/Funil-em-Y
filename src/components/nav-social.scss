@@ -29,14 +29,18 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px){
 	.nav-social{
-		right: 80px;
+		right: 40px;
 		&__link-anchor{
 			font-size: 14px;
 		}
 	}
 }
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+	.nav-social{
+		right: 80px;
+	}
+}
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}

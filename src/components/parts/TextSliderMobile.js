@@ -37,18 +37,15 @@ class TextSlider extends Component{
 		return (
 			<React.Fragment>
 				<div className={`${this.props.controlerClass}-mobile`}>
-					{/*TODO: Adicionar regras de abertura*/}
-					{/*TODO: Remover regras não usadas*/}
-					{/*TODO: Aplicar os estilos corretos*/}
-					{/*TODO: Aplicar no COMPONENTE PAI a validação para qual tem que estar visível*/}
 					{this.props.slides.map(slide => 
 						<div key={`slideMobile__${slide.id}`} className={`${this.props.controlerClass}-mobile__slide`}>
 							<div className={`${this.props.controlerClass}-mobile__title ${this.state.slideActive === parseInt(slide.id) && `${this.props.controlerClass}-mobile__title--open `}`} 
 								onClick={() => this.setCurrentSlide(slide.id)}>
 								{slide.titulo} 
 							</div>
-							<div className={`${this.props.controlerClass}-mobile__desc ${this.state.slideActive === parseInt(slide.id) && `${this.props.controlerClass}-mobile__desc--open `}`}>
-								{slide.desc}
+							<div className={`${this.props.controlerClass}-mobile__desc ${this.state.slideActive === parseInt(slide.id) && `${this.props.controlerClass}-mobile__desc--open `}`}
+								dangerouslySetInnerHTML={{__html: slide.desc}}
+							>
 							</div>
 						</div>
 					)}	

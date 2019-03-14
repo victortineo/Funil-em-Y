@@ -151,11 +151,17 @@ class VerticalSliderAlt extends Component{
 										alt={slide.desc}
 										onClick={(e) => this.setActiveSlide(i, e)}
 									/>
-									{this.props.type === 'lateral' ? 
-									<p className="verticalSliderAlt__controler-text" key={`verticalSliderAltText_${this.state.active}`}>
-										{this.state.slides.length !== 0 ? slide.texto : ''}
+									{this.state.slides.length > 0 && slide.texto ? 
+									<p className={`verticalSliderAlt__controler-year--mobile`}>
+										{this.state.slides.length > 0 ? slide.ano : ''}
 									</p>
-									: '' }
+										: ''
+									}
+									<p className={`verticalSliderAlt__controler-text ${this.props.type !== 'lateral' && 'verticalSliderAlt__controler-text--mobileOnly'}  `} key={`verticalSliderAltText_${this.state.active}`}>
+										{this.state.slides.length > 0 ? slide.texto : ''}
+										{this.state.slides.length > 0 ? slide.text ? slide.text.slice(0, 85) : '' : ''}
+
+									</p>
 								</div>
 							))
 						 : ''}

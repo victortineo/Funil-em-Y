@@ -8,12 +8,14 @@
   &__navWrapper{
     position: absolute;
     width: 200px;
-    top: 15%;
-    right: 25%;
     display: flex;
     flex-direction: column;
-    height: 200px;
     justify-content: space-between;
+    // mobile
+    height: 150px;
+    top: 23%;
+    left: 57%;
+    transform: translateX(-50%);
   }
   &__sliderWrapper{
     position: absolute;
@@ -22,6 +24,12 @@
     bottom: 0%;
     height: 50%;
     overflow: hidden;
+    // mobile
+    width: 100%;
+    height: auto;
+    bottom: 12%;
+    transform: none;
+    left: 0;
   }
   &__slider{
     width: 100%;
@@ -70,6 +78,19 @@
   .a-layer{
     &__navWrapper{
       right: 15%;
+      height: 200px;
+      top: 15%;
+      transform: none;
+    }
+    &__sliderWrapper{
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: 0;
+      height: 50%;
+      overflow: hidden;
+      width: auto;
     }
   }
 }

@@ -2,13 +2,10 @@
     max-width: 250px;
     width: 100%;
     display: block;
-    // mobile
     min-width: 68%;
   &__image{
     width: 100%;
     object-fit: cover;
-    height: 120px;
-    // mobile
     height: 100px;
   }
   &__text{
@@ -16,5 +13,14 @@
     color: #fff;
     font-size: 12px;
     line-height: 15px;
+  }
+}
+
+@media (min-width: 768px){
+  .blogPost{
+      min-width: 0;
+    &__image{
+      height: 120px;
+    }
   }
 }

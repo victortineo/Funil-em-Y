@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NavButton from '../parts/NavButton';
 import VerticalSliderAlt from '../parts/VerticalSliderAlt';
-import placeholder from '../../assets/images/quem-somos/placeholder.png'
 
 class Jornada extends Component {
   render() { 

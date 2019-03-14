@@ -12,22 +12,17 @@
     right: 15%;
     display: flex;
     flex-direction: column;
-    height: 200px;
     justify-content: space-between;
-
-    // mobile
     height: 165px;
   }
   &__posts{
     display: flex;
-    // justify-content: center;
     position: absolute;
     bottom: 11%;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
     // mobile
-    overflow-x: scroll;
     .blogPost{
       margin: 0 1.5em;
     }
@@ -82,7 +77,8 @@
   .blog{
     &__navWrapper{
       top: 15%;
-      right: 25%;
+      right: 20%;
+      height: 200px;
     }
   }
 }
@@ -95,7 +91,11 @@
   .blog{
     &__navWrapper{
       top: 25%;
-      right: 35%
+      right: 30%
+    }
+    &__posts{
+      justify-content: center;
+      overflow-x: hidden;
     }
   }
 }

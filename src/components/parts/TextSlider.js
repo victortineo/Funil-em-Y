@@ -59,8 +59,9 @@ class TextSlider extends Component{
 			<React.Fragment>
 				<div key={`activeSlide_${this.state.slideActive}`} className={`${this.props.controlerClass} ${this.state.animated === true ? `${this.props.controlerClass}--animated` : ''}`}>
 					<strong className={`${this.props.controlerClass}__title`}>{this.props.slides.length !== 0 && (this.props.slides[this.state.slideActive - 1].titulo)}</strong>
-					<p className={`${this.props.controlerClass}__text`}>
-						{this.props.slides.length !== 0 && (this.props.slides[this.state.slideActive - 1].desc)}
+					<p className={`${this.props.controlerClass}__text`}
+						dangerouslySetInnerHTML={{__html: this.props.slides.length !== 0 && (this.props.slides[this.state.slideActive - 1].desc)}}
+					>
 					</p>
 					<div className={`${this.props.controlerClass}__nav`}>
 						<span 

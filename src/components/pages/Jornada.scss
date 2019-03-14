@@ -4,15 +4,18 @@
   left: 0;
   height: 100%;
   width: 100vw;
+  overflow: hidden;
   &__navWrapper{
     position: absolute;
     width: 200px;
-    left: 5%;
-    bottom: 15%;
     display: flex;
     flex-direction: column;
-    height: 200px;
     justify-content: space-between;
+    // mobile
+    height: 150px;
+    top: 23%;
+    left: 55%;
+    transform: translateX(-50%);
   }
   &__sliderWrapper{
     position: absolute;
@@ -20,6 +23,15 @@
     top: 50%;
     transform: translateY(-50%);
     overflow: hidden;
+    // mobile
+    width: 100%;
+    height: auto;
+    top: auto;
+    transform: none;
+    bottom: 13.5%;
+    right: 0;
+    width: 95%;
+    left: 0;
   }
   &__slider{
     width: 100%;
@@ -65,6 +77,26 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px){
+  .jornada{
+    &__navWrapper{
+      left: 25%;
+      bottom: 25%;
+      top: auto;
+      height: 200px;
+      transform: none;
+    }
+    &__sliderWrapper{
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      overflow: hidden;
+      left: auto;
+      width: 100%;
+      height: 85%;
+      width: auto;
+    }
+  }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {

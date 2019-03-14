@@ -81,8 +81,10 @@ class MetodologiaInterna extends Component {
                 {this.state.toggler === true ? `-` : `+`}
               </span>
             </h2>
-          <p className={`${this.props.secClass}__intro-text ${this.state.toggler === true ? `${this.props.secClass}__intro-text--active` : `${this.props.secClass}__intro-text--inactive`}`}>
-            {this.props.context ? this.props.context.desc : ''}
+          <p className={`${this.props.secClass}__intro-text ${this.state.toggler === true ? `${this.props.secClass}__intro-text--active` : `${this.props.secClass}__intro-text--inactive`}`}
+            dangerouslySetInnerHTML={{__html: this.props.context ? this.props.context.desc : ''}}
+          >
+            
           </p>
         </div>        
         <div className={`${this.props.secClass}__slider-wrapper`}>

@@ -188,7 +188,7 @@
             display: none;
         }
         &__intro-text{
-            max-width: none;
+            max-width: 400px;
             background: none;
         }
     }
@@ -208,8 +208,8 @@
             max-width: 520px;
         }
         &__intro-title{
-            font-size: 80px;
-            line-height: 90px;
+            font-size: 60px;
+            line-height: 70px;
             margin: -10px 0 0;
         }
     }
@@ -226,8 +226,8 @@
             max-width: 400px;
         }
         &__intro-title{
-            font-size: 100px;
-            line-height: 110px;
+            font-size: 80px;
+            line-height: 90px;
             margin: -10px 0 0;
         }
         &__buttons-wrapper{
@@ -237,6 +237,9 @@
             .magnet{
                 background-size: cover;
             }
+        }
+        &__intro-text{
+            max-width: 550px;
         }
     }
 }
